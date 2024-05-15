@@ -1,19 +1,17 @@
 package backend;
+import java.time.LocalDate;
 
-public class Merchandise {
-    private String code;
-    private String name;
-    private String unit;
+public class Merchandise extends RawMerchandise {
     private int quantity;
+    private LocalDate deliveryDate;
 
-    public Merchandise() {
-
+    public Merchandise(String code, String name, String unit, int quantity, LocalDate deliveryDate) {
+        super(code, name, unit);
+        this.quantity = quantity;
+        this.deliveryDate = deliveryDate;
     }
 
-    public Merchandise(String code, String name, String unit, int quantity) {
-        this.code = code;
-        this.name = name;
-        this.unit = unit;
-        this.quantity = quantity;
+    public int getQuantity() {
+        return quantity;
     }
 }

@@ -10,4 +10,5 @@ public class Order {
         this.id = id;
         this.merchandiseList = merchandiseList;
     }
+
 }

@@ -1,30 +1,35 @@
 package backend;
+import backend.database.SalesDepartmentDatabase;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class SalesDepartment {
-    SalesDepartmentDatabase salesDepartmentDatabase;
-    RawMerchandise rawMerchandise;
-    private ArrayList<Order> orderList;
 
-    public SalesDepartment() {
-        this.orderList = new ArrayList<>();
-    }
+    private String id;
+    private SalesDepartmentDatabase salesDepartmentDatabase;
+    private RawMerchandise rawMerchandise;
 
-    public SalesDepartment(ArrayList<Order> orderList) {
-        this.orderList = orderList;
+    public SalesDepartment(String id) {
+        this.id = id;
+        // initialize the databases
     }
 
 
     public void createOrder(Order order) {
-
+        try {
+            salesDepartmentDatabase.createOrder(order, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-
-
-    @Override
-    public RawMerchandise findRawMerchandise(String merchandiseCode) {
-        return null;
+    public List<Order> getOrderList() {
+        try {
+            return salesDepartmentDatabase.getOrderList(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
 

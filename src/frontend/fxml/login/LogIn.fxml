@@ -8,8 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.login.LoginController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,16 +18,16 @@
       <VBox spacing="5.0">
          <children>
             <Label styleClass="normal-text" text="Username" />
-            <TextField />
+            <TextField fx:id="usernameField" />
          </children>
       </VBox>
       <VBox layoutX="10.0" layoutY="185.0" spacing="5.0">
          <children>
             <Label styleClass="normal-text" text="Password" />
-            <TextField />
+            <TextField fx:id="passwordField" />
          </children>
       </VBox>
-      <Button mnemonicParsing="false" style="-fx-background-color: -color-accent-6; -fx-text-fill: white;" text="Login" />
+      <Button mnemonicParsing="false" onAction="#loginButtonClicked" style="-fx-background-color: -color-accent-6; -fx-text-fill: white;" text="Login" />
    </children>
    <padding>
       <Insets bottom="40.0" left="100.0" right="100.0" top="40.0" />

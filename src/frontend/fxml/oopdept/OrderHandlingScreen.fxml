@@ -19,24 +19,28 @@
          </children>
       </HBox>
       <Label styleClass="title" text="General information" />
-      <HBox spacing="20.0">
+      <VBox styleClass="info-box">
          <children>
-            <VBox spacing="5.0">
+            <HBox spacing="20.0">
                <children>
-                  <Label styleClass="normal-text" text="Order ID:" />
-                  <Label layoutX="10.0" layoutY="10.0" styleClass="normal-text" text="Sales department ID" />
-                  <Label layoutX="10.0" layoutY="44.0" styleClass="normal-text" text="Desired delivery date:" />
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label styleClass="normal-text" text="Order ID:" />
+                        <Label layoutX="10.0" layoutY="10.0" styleClass="normal-text" text="Sales department ID" />
+                        <Label layoutX="10.0" layoutY="44.0" styleClass="normal-text" text="Desired delivery date:" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="orderIDLabel" styleClass="normal-text" text="HIEWBT" wrapText="true" />
+                        <Label fx:id="salesDepartmentIDLabel" layoutX="10.0" layoutY="10.0" styleClass="normal-text" text="HIEWSATTHU" wrapText="true" />
+                        <Label fx:id="desiredDateLabel" layoutX="10.0" layoutY="44.0" styleClass="normal-text" text="10/18/2024" wrapText="true" />
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-            <VBox layoutX="10.0" layoutY="10.0" spacing="5.0">
-               <children>
-                  <Label fx:id="orderIDLabel" styleClass="normal-text" text="HIEWBT" wrapText="true" />
-                  <Label fx:id="salesDepartmentIDLabel" layoutX="10.0" layoutY="10.0" styleClass="normal-text" text="HIEWSATTHU" wrapText="true" />
-                  <Label fx:id="desiredDateLabel" layoutX="10.0" layoutY="44.0" styleClass="normal-text" text="10/18/2024" wrapText="true" />
-               </children>
-            </VBox>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
       <Label layoutX="30.0" layoutY="91.0" styleClass="title" text="Merchandise list" />
       <VBox VBox.vgrow="ALWAYS">
          <children>

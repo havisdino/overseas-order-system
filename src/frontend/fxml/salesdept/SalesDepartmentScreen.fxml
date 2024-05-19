@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" spacing="20.0" style="-fx-background-color: #e8e8e8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" spacing="20.0" style="-fx-background-color: #e8e8e8;" styleClass="../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.salesdept.SalesDepartmentController">
    <children>
-      <VBox alignment="CENTER_LEFT" prefWidth="230.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../style/stylesheet.css">
+      <VBox alignment="CENTER_LEFT" prefWidth="230.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner">
          <children>
             <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
                <children>
@@ -33,7 +33,7 @@
             </VBox>
             <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-text-fill: -color-danger-7;" text="Logout" />
+                  <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-text-fill: -color-danger-7;" text="Logout" />
                </children>
             </VBox>
          </children>
@@ -47,7 +47,7 @@
          </padding>
          <children>
             <Label styleClass="heading" text="Sales Department Administration" />
-            <Button mnemonicParsing="false" style="-fx-background-color: -color-accent-6;" text="+ New order" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#newOrderButtonClicked" style="-fx-background-color: -color-accent-6;" text="+ New order" textFill="WHITE" />
             <Label styleClass="title" text="Placed orders" />
             <VBox VBox.vgrow="ALWAYS">
                <children>

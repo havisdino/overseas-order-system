@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="600.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="600.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.salesdept.NewOrderController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
    </padding>
@@ -19,31 +19,16 @@
          </children>
       </HBox>
       <Label styleClass="title" text="General information" />
-      <HBox alignment="CENTER_LEFT" spacing="20.0">
+      <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="info-box">
          <children>
-            <Label styleClass="normal-text" text="Desired delivery date:">
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </Label>
-            <VBox alignment="CENTER">
+            <Label styleClass="normal-text" text="Desired delivery date:" />
+            <HBox spacing="10.0">
                <children>
-                  <Label styleClass="small-text" text="Month" />
-                  <TextField prefWidth="50.0" />
+                  <TextField fx:id="monthField" prefWidth="80.0" promptText="month" />
+                  <TextField fx:id="dayField" prefWidth="80.0" promptText="day" />
+                  <TextField fx:id="yearField" prefWidth="100.0" promptText="year" />
                </children>
-            </VBox>
-            <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
-               <children>
-                  <Label styleClass="small-text" text="Day" />
-                  <TextField prefWidth="50.0" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" layoutX="80.0" layoutY="10.0">
-               <children>
-                  <Label styleClass="small-text" text="Year" />
-                  <TextField prefWidth="100.0" />
-               </children>
-            </VBox>
+            </HBox>
          </children>
       </HBox>
       <Label layoutX="30.0" layoutY="91.0" styleClass="title" text="Available merchandises" />
@@ -135,8 +120,8 @@
       </VBox>
       <HBox alignment="CENTER_RIGHT" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" style="-fx-text-fill: -color-danger-7;" text="Discard" />
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" styleClass="blue-button" text="Done" />
+            <Button mnemonicParsing="false" onAction="#discardButtonClicked" style="-fx-text-fill: -color-danger-7;" text="Discard" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#doneButtonClicked" styleClass="blue-button" text="Done" />
          </children>
       </HBox>
    </children>

@@ -1,14 +1,16 @@
 package backend;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Order {
-    private int id;
-    private ArrayList<Merchandise> merchandiseList;
-    public Order(int id, ArrayList<Merchandise> merchandiseList) {
+    private String id;
+    private List<Merchandise> merchandiseList;
+    private Date dateCreate;
+    public Order(String id, List<Merchandise> merchandiseList, Date dateCreate) {
         this.id = id;
         this.merchandiseList = merchandiseList;
+        this.dateCreate = dateCreate;
     }
 
 }

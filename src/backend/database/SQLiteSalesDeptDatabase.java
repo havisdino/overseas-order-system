@@ -2,7 +2,6 @@ package backend.database;
 
 import backend.Merchandise;
 import backend.Order;
-import org.sqlite.SQLiteConnection;
 
 import java.sql.*;
 import java.time.Instant;

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
 <VBox prefHeight="600.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.site.RequestDetailController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
@@ -23,7 +27,7 @@
                         <Label styleClass="normal-text" text="Order ID:" />
                         <Label layoutX="10.0" layoutY="10.0" styleClass="normal-text" text="OOPD ID:" />
                         <Label layoutX="10.0" layoutY="27.0" styleClass="normal-text" text="Description:" />
-                        <Label layoutX="10.0" layoutY="44.0" styleClass="normal-text" text="Desired delivery date:" />
+                        <Label layoutX="10.0" layoutY="44.0" styleClass="normal-text" text="Date created:" />
                      </children>
                   </VBox>
                   <VBox layoutX="10.0" layoutY="10.0" spacing="5.0">

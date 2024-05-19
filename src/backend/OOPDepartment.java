@@ -1,21 +1,14 @@
 package backend;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class OOPDepartment {
-    private ArrayList<Record> recordList;
-    private ArrayList<Order> orderList;
+    private List<Record> recordList;
+    private List<Order> orderList;
 
-    public OOPDepartment(ArrayList<Record> recordList) {
-        this.recordList = recordList;
-    }
 
-    public OOPDepartment(ArrayList<Order> orderList) {
+    public OOPDepartment(List<Order> orderList) {
         this.orderList = orderList;
     }
 
 }
-
-
-
-

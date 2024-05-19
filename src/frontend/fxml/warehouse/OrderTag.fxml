@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0" style="-fx-background-color: white;" styleClass="rounded-corner" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.warehouse.OrderTagController">
+   <children>
+      <Label fx:id="orderIDLabel" prefWidth="180.0" styleClass="normal-text" text="ORDER12" wrapText="true" />
+      <Label fx:id="descriptionLabel" layoutX="30.0" layoutY="30.0" prefWidth="200.0" styleClass="normal-text" text="Gia Anh's dolls" wrapText="true" />
+      <Label fx:id="desiredDateLabel" layoutX="172.0" layoutY="30.0" prefWidth="120.0" styleClass="normal-text" text="10/18/2024" wrapText="true" />
+      <HBox alignment="CENTER_RIGHT" spacing="40.0" HBox.hgrow="ALWAYS">
+         <children>
+            <Button mnemonicParsing="false" onAction="#detailButtonClicked" style="-fx-background-color: 0; -fx-padding: 0 0 0 0;">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/icons/info.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="checkResultLabel" prefWidth="100.0" text="Identical">
+               <styleClass>
+                  <String fx:value="normal-text" />
+                  <String fx:value="success-text" />
+               </styleClass>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+   </padding>
+</HBox>

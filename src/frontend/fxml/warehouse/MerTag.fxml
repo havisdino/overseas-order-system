@@ -22,7 +22,7 @@
       <Label fx:id="unitLabel" layoutX="231.0" layoutY="30.0" prefWidth="100.0" styleClass="normal-text" text="Tube" />
       <HBox alignment="CENTER_RIGHT" spacing="20.0" HBox.hgrow="ALWAYS">
          <children>
-            <Button layoutX="170.0" layoutY="10.0" mnemonicParsing="false" onAction="#addButtonClicked" prefWidth="67.5" style="-fx-text-fill: -color-accent-6;" text="Add" />
+            <Button fx:id="addButton" layoutX="170.0" layoutY="10.0" mnemonicParsing="false" onAction="#addButtonClicked" prefWidth="67.5" style="-fx-text-fill: -color-accent-6;" text="Add" />
          </children>
          <padding>
             <Insets left="50.0" />

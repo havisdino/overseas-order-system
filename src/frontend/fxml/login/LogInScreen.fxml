@@ -8,23 +8,23 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.login.LoginController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: white;" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.login.LoginController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/icons/logo.png" />
          </image>
       </ImageView>
-      <VBox spacing="5.0">
+      <VBox maxWidth="500.0" spacing="5.0">
          <children>
             <Label styleClass="normal-text" text="Username" />
-            <TextField fx:id="usernameField" />
+            <TextField fx:id="usernameField" maxWidth="500.0" />
          </children>
       </VBox>
-      <VBox layoutX="10.0" layoutY="185.0" spacing="5.0">
+      <VBox layoutX="10.0" layoutY="185.0" maxWidth="500.0" spacing="5.0">
          <children>
             <Label styleClass="normal-text" text="Password" />
-            <TextField fx:id="passwordField" />
+            <TextField fx:id="passwordField" maxWidth="500.0" />
          </children>
       </VBox>
       <Button mnemonicParsing="false" onAction="#loginButtonClicked" style="-fx-background-color: -color-accent-6; -fx-text-fill: white;" text="Login" />

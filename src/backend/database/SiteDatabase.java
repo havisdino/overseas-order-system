@@ -1,7 +1,6 @@
 package backend.database;
 
 import backend.Merchandise;
-import backend.Order;
 
 import java.sql.SQLException;
 import java.util.List;

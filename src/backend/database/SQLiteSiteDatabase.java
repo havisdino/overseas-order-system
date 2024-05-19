@@ -1,6 +1,7 @@
 package backend.database;
 
 import backend.Merchandise;
+import backend.Site;
 
 import java.sql.*;
 import java.time.Instant;
@@ -36,4 +37,11 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     public List<Merchandise> getMerchandiseList(String siteCode) throws SQLException {
         return null;
     }
+
+    @Override
+    public List<Site> getSiteList(String merchandiseCode) throws SQLException {
+
+    }
+
+
 }

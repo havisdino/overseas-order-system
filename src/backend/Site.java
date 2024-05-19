@@ -7,6 +7,6 @@ public class Site {
     private DeliveryInfo deliveryInfo;
     private String name;
     private String otherInfo;
-    ArrayList<Merchandise> merchandisesList;
-
+    ArrayList<Merchandise> merchandiseList;
+    
 }

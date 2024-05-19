@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" spacing="20.0" style="-fx-background-color: #e8e8e8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" spacing="20.0" style="-fx-background-color: #e8e8e8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.warehouse.WarehouseController">
    <children>
       <VBox alignment="CENTER_LEFT" prefWidth="230.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../style/stylesheet.css">
          <children>
@@ -34,7 +34,7 @@
             </VBox>
             <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-text-fill: -color-danger-7;" text="Logout" />
+                  <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-text-fill: -color-danger-7;" text="Logout" />
                </children>
             </VBox>
          </children>
@@ -48,7 +48,7 @@
          </padding>
          <children>
             <Label styleClass="heading" text="Warehouse Administration" />
-            <Button mnemonicParsing="false" style="-fx-background-color: -color-accent-6;" text="+ New order check" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#newOrderCheckButtonClicked" style="-fx-background-color: -color-accent-6;" text="+ New order check" textFill="WHITE" />
             <Label styleClass="title" text="Created order checks" />
             <VBox VBox.vgrow="ALWAYS">
                <children>

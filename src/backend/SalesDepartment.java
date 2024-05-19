@@ -19,7 +19,7 @@ public class SalesDepartment implements RawMerchandiseDabatase {
 
     @Override
     public RawMerchandise findRawMerchandise(String merchandiseCode) {
-        return;
+        return null;
     }
 }
 

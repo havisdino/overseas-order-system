@@ -277,3 +277,10 @@
 .failed-text {
   -fx-text-fill: -color-danger-7;
 }
+
+.info-box {
+  -fx-border-color: -color-base-3;
+  -fx-border-width: 1;
+  -fx-border-radius: 1em;
+  -fx-padding: 20px 20px 20px 20px;
+}

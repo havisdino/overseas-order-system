@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" spacing="20.0" style="-fx-background-color: #e8e8e8;" stylesheets="@../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" spacing="20.0" style="-fx-background-color: #e8e8e8;" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.site.MerListController">
    <children>
-      <VBox alignment="CENTER_LEFT" prefWidth="230.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../style/stylesheet.css">
+      <VBox alignment="CENTER_LEFT" prefWidth="230.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../../style/stylesheet.css">
          <children>
             <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
                <children>
@@ -28,7 +28,7 @@
             </VBox>
             <VBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: 0;" text="Merchandises">
+                  <Button mnemonicParsing="false" onAction="#sideMerButtonClicked" style="-fx-background-color: 0;" text="Merchandises">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0">
                            <image>
@@ -37,7 +37,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="27.0" layoutY="94.0" mnemonicParsing="false" style="-fx-background-color: 0;" text="Requests">
+                  <Button layoutX="27.0" layoutY="94.0" mnemonicParsing="false" onAction="#sideRequestButtonClicked" style="-fx-background-color: 0;" text="Requests">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0">
                            <image>
@@ -50,7 +50,7 @@
             </VBox>
             <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-text-fill: -color-danger-7;" text="Logout" />
+                  <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-text-fill: -color-danger-7;" text="Logout" />
                </children>
             </VBox>
          </children>
@@ -74,10 +74,10 @@
                         <Insets top="4.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Label layoutX="10.0" layoutY="10.0" styleClass="heading" text="Merchandises" />
+                  <Label fx:id="currentScreenLabel" layoutX="10.0" layoutY="10.0" styleClass="heading" text="Merchandises" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" style="-fx-background-color: -color-accent-6;" text="+ Add merchandise" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#addMerButtonClicked" style="-fx-background-color: -color-accent-6;" text="+ Add merchandise" textFill="WHITE" />
             <Label styleClass="title" text="Current merchandises" />
             <VBox VBox.vgrow="ALWAYS">
                <children>

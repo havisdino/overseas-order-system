@@ -12,6 +12,11 @@ public class Merchandise extends RawMerchandise {
         this.deliveryDate = deliveryDate;
     }
 
+    public Merchandise(String code, String name, String unit, int quantity) {
+        super(code, name, unit);
+        this.quantity = quantity;
+    }
+
     public int getQuantity() {
         return quantity;
     }

@@ -1,9 +1,11 @@
 package backend.database;
 
 import backend.Merchandise;
+import backend.Order;
 
 import java.sql.*;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SQLiteSiteDatabase implements SiteDatabase {
@@ -14,10 +16,10 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     }
 
     @Override
-    public void addMerchandise(String merchandiseCode, String siteCode) throws SQLException {
+    public void addMerchandise(String merchandiseCode, String siteCode, int quantity) throws SQLException {
         Statement stmt = connection.createStatement();
-        String query = "insert into site_merchandise (siteCode, merchandiseCode) values (" +
-                siteCode + "," + merchandiseCode + ")";
+        String query = "insert into site_merchandise (siteCode, merchandiseCode, quantity) values (" +
+                siteCode + "," + merchandiseCode + "," + quantity + ")";
         stmt.executeUpdate(query);
         stmt.close();
     }
@@ -34,6 +36,22 @@ public class SQLiteSiteDatabase implements SiteDatabase {
 
     @Override
     public List<Merchandise> getMerchandiseList(String siteCode) throws SQLException {
-        return null;
+        Statement stmt = connection.createStatement();
+
+        String query = "select merchandiseCode, quantity from site_merchandise where siteCode = " + siteCode;
+        ResultSet results = stmt.executeQuery(query);
+
+        List<Merchandise> merchandiseList = new ArrayList<>();
+        while (results.next()) {
+            String merchandiseCode = results.getString("merchandiseCode");
+            int merchandiseQuantity = results.getInt("quantity");
+            query = "select name, unit from rawmerchandise where code = " + merchandiseCode;
+            ResultSet merchandiseInfo = stmt.executeQuery(query);
+            String merchandiseName = merchandiseInfo.getString("name");
+            String merchandiseUnit = merchandiseInfo.getString("unit");
+            merchandiseList.add(new Merchandise(merchandiseCode, merchandiseName, merchandiseUnit, merchandiseQuantity));
+        }
+
+        return merchandiseList;
     }
 }

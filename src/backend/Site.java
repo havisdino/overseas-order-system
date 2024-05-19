@@ -1,5 +1,6 @@
 package backend;
 
+import backend.database.SQLiteSiteDatabase;
 import backend.database.SiteDatabase;
 
 import java.sql.SQLException;
@@ -13,16 +14,27 @@ public class Site {
 
     private SiteDatabase db;
 
-    List<Merchandise> merchandiseList;
+    public Site(String code, DeliveryInfo deliveryInfo, String name, String otherInfo, SiteDatabase db) throws Exception {
+        this.code = code;
+        this.deliveryInfo = deliveryInfo;
+        this.name = name;
+        this.otherInfo = otherInfo;
+        this.db = new SQLiteSiteDatabase("");
+    }
 
 //    public int findMerchandise (String merchandiseCode) {
 //        return db.countProduct(merchandiseCode)
 //    }
-    public void addMerchandise (String... merchandiseCodes) throws SQLException {
+    public void addMerchandise (int quantity, String... merchandiseCodes) throws SQLException {
         for (String merchandiseCode : merchandiseCodes) {
-            db.addMerchandise(merchandiseCode, code);
+            db.addMerchandise(merchandiseCode, code, quantity);
         }
     }
+
+    public void getMerchandise () throws SQLException {
+        db.getMerchandiseList(code);
+    }
+
 
     public void deleteMerchandise (String... merchandiseCodes) {
         for (String code : merchandiseCodes) {

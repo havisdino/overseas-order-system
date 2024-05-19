@@ -1,6 +1,7 @@
 .idea
 *.iml
 OverseasOrderSystem.iml
+src/test
 
 
 ### IntelliJ IDEA ###

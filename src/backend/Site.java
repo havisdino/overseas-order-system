@@ -2,7 +2,8 @@ package backend;
 
 import backend.database.SiteDatabase;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
+import java.util.List;
 
 public class Site {
     private String code;
@@ -12,14 +13,14 @@ public class Site {
 
     private SiteDatabase db;
 
-    ArrayList<Merchandise> merchandiseList;
+    List<Merchandise> merchandiseList;
 
 //    public int findMerchandise (String merchandiseCode) {
 //        return db.countProduct(merchandiseCode)
 //    }
-    public void addMerchandise (String... merchandiseCodes) {
-        for (String code : merchandiseCodes) {
-//            db.addMerchandise(code)
+    public void addMerchandise (String... merchandiseCodes) throws SQLException {
+        for (String merchandiseCode : merchandiseCodes) {
+            db.addMerchandise(merchandiseCode, code);
         }
     }
 

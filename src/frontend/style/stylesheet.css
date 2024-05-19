@@ -284,3 +284,12 @@
   -fx-border-radius: 1em;
   -fx-padding: 20px 20px 20px 20px;
 }
+
+.inactivated-button {
+  -fx-background-radius: 0.6em;
+  -fx-background-color: -color-base-1;
+  -fx-font-size: 1.2em;
+  -fx-padding: 0.6em 0.8em 0.6em 0.8em;
+  -fx-spacing: 0.6em;
+  -fx-text-fill: -color-base-4;
+}

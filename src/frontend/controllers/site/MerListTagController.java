@@ -1,5 +1,6 @@
 package frontend.controllers.site;
 
+import backend.Merchandise;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -26,6 +27,13 @@ public class MerListTagController {
     @FXML
     void editButtonClicked(ActionEvent event) {
 
+    }
+
+    public void setData(Merchandise merchandise) {
+        mercodeLabel.setText(merchandise.getCode());
+        nameLabel.setText(merchandise.getName());
+        quantityLabel.setText(String.valueOf(merchandise.getQuantity()));
+        unitLabel.setText(merchandise.getUnit());
     }
 
 }

@@ -37,9 +37,10 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     public List<Merchandise> getMerchandiseList(String siteCode) throws SQLException {
         connect();
         Statement stmt = connection.createStatement();
-
+        Statement stmt2 = connection.createStatement();
         String query = "select mercode, quantity from site_merchandise where sitecode = '" + siteCode + "'";
         ResultSet results = stmt.executeQuery(query);
+
 
         List<Merchandise> merchandiseList = new ArrayList<>();
 
@@ -47,12 +48,13 @@ public class SQLiteSiteDatabase implements SiteDatabase {
             String merchandiseCode = results.getString("mercode");
             int merchandiseQuantity = results.getInt("quantity");
             query = "select name, unit from rawmerchandise where code = '" + merchandiseCode + "'";
-            ResultSet merchandiseInfo = stmt.executeQuery(query);
+            ResultSet merchandiseInfo = stmt2.executeQuery(query);
             String merchandiseName = merchandiseInfo.getString("name");
             String merchandiseUnit = merchandiseInfo.getString("unit");
             merchandiseList.add(new Merchandise(merchandiseCode, merchandiseName, merchandiseUnit, merchandiseQuantity));
-        }
 
+        }
+        stmt2.close();
         stmt.close();
         close();
         return merchandiseList;

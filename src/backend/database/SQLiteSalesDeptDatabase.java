@@ -4,6 +4,7 @@ import backend.Config;
 import backend.Merchandise;
 import backend.Order;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.*;
@@ -25,7 +26,7 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
         connect();
         Statement stmt = connection.createStatement();
         String id = String.valueOf(Instant.now().getEpochSecond());
-        String pattern = "dd-MM-yyy";
+        String pattern = "yyyy-MM-dd";
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
         String dateCreate = dateFormat.format(new Date());
         String description = order.getDescription();
@@ -57,7 +58,17 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
         List<Order> orderList = new ArrayList<>();
         while (results.next()) {
             String orderID = results.getString("id");
-            Date dateCreate = results.getDate("datecreated");
+            String datecreate = results.getString("datecreated");
+            String pattern = "yyyy-MM-dd";
+            SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+
+            Date dateCreate = null;
+            try {
+                 dateCreate = dateFormat.parse(datecreate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
             String description = results.getString("description");
 
             query = "select mercode from order_merchandise where orderid ='" + orderID + "'";

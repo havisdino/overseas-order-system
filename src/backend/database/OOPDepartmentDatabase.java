@@ -5,7 +5,6 @@ import backend.Site;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface OOPDepartmentDatabase {
+public interface OOPDepartmentDatabase extends Database {
     List<Order> getOrderList(String OOPDeptID) throws SQLException;
-    List<Site> getSites(String merchandiseID) throws SQLException;
 }

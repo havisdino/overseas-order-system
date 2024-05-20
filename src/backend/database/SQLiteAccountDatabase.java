@@ -14,10 +14,13 @@ public class SQLiteAccountDatabase implements AccountDatabase {
 
     @Override
     public String findUserRole(String username, String password) throws SQLException {
+        connect();
         Statement stmt = connection.createStatement();
         String query = "select role from account where username = '" + username + "' and password = '" + password +"'";
         ResultSet result = stmt.executeQuery(query);
-        return result.getString("role");
+        String role = result.getString("role");
+        close();
+        return role;
     }
 
     @Override

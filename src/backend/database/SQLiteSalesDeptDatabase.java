@@ -26,7 +26,7 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
         connect();
         Statement stmt = connection.createStatement();
         String id = String.valueOf(Instant.now().getEpochSecond());
-        String pattern = "yyyy/MM/dd";
+        String pattern = "yyyy-MM-dd";
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
         String dateCreate = dateFormat.format(new Date());
         String description = order.getDescription();
@@ -59,7 +59,7 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
         while (results.next()) {
             String orderID = results.getString("id");
             String datecreate = results.getString("datecreated");
-            String pattern = "yyyy/MM/dd";
+            String pattern = "yyyy-MM-dd";
             SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 
             Date dateCreate = null;
@@ -84,7 +84,7 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
                 String unit = merchandiseInfo.getString("unit");
                 int quantity = merchandiseInfo.getInt("quantity");
 
-                String pattern1 = "yyyy/MM/dd";
+                String pattern1 = "yyyy-MM-dd";
                 SimpleDateFormat dateFormat1 = new SimpleDateFormat(pattern1);
 
                 String deliverydate = merchandiseInfo.getString("deliverydate");

@@ -25,7 +25,7 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
         connect();
         Statement stmt = connection.createStatement();
         String id = String.valueOf(Instant.now().getEpochSecond());
-        String pattern = "dd-MM-yyy";
+        String pattern = "yyyy-MM-dd";
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
         String dateCreate = dateFormat.format(new Date());
         String description = order.getDescription();

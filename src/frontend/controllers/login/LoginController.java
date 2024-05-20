@@ -3,17 +3,16 @@ package frontend.controllers.login;
 import backend.Config;
 import backend.database.AccountDatabase;
 import backend.database.SQLiteAccountDatabase;
-import frontend.controllers.UniversalController;
+import frontend.controllers.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class LoginController {
+public class LoginController extends Switchable {
 
     @FXML
     private TextField passwordField;
@@ -41,7 +40,7 @@ public class LoginController {
             config.setRole(role);
 
             activateScreen(role);
-            ((Node) (event.getSource())).getScene().getWindow().hide();
+            close(event);
         }
     }
 
@@ -50,17 +49,13 @@ public class LoginController {
         if (role.equals("site")) {
             url = "/frontend/fxml/site/MerListScreen.fxml";
         } else if (role.equals("salesdept")) {
-            url = "/frontend/fxml/SalesDepartmentScreen.fxml";
+            url = "/frontend/fxml/salesdept/SalesDepartmentScreen.fxml";
         } else if (role.equals("warehouse")) {
-            url = "/frontend/fxml/WarehouseScreen.fxml";
+            url = "/frontend/fxml/warehouse/WarehouseScreen.fxml";
         } else if (role.equals("oopdept")) {
-            url = "/frontend/fxml/OOPDeptScreen.fxml";
+            url = "/frontend/fxml/oopdept/OOPDeptScreen.fxml";
         }
-
-        Parent root = FXMLLoader.load(getClass().getResource(url));
-        Stage stage = new Stage();
-        stage.setTitle("Add merchandises");
-        stage.setScene(new Scene(root));
-        stage.show();
+        System.out.println(url);
+        jump(url);
     }
 }

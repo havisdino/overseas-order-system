@@ -3,8 +3,7 @@ package frontend.controllers.site;
 import backend.Config;
 import backend.Merchandise;
 import backend.Site;
-import com.sun.scenario.effect.impl.sw.java.JSWBlend_SRC_OUTPeer;
-import frontend.controllers.UniversalController;
+import frontend.controllers.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +19,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class MerListController implements Initializable {
+public class MerListController extends Switchable implements Initializable {
 
     @FXML
     private VBox mainVBox;
@@ -34,7 +33,6 @@ public class MerListController implements Initializable {
         try{
             Site site = new Site(config.getUsername());
             List<Merchandise> merchandises = site.getMerchandise();
-            System.out.println(merchandises);
             addMerTags(merchandises);
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,8 +61,13 @@ public class MerListController implements Initializable {
     }
 
     @FXML
-    void logoutButtonClicked(ActionEvent event) {
-        UniversalController.getController().activate("login");
+    void logoutButtonClicked(ActionEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/frontend/fxml/login/LogInScreen.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("EasyOrder");
+        stage.setScene(new Scene(root));
+        stage.show();
+        close(event);
     }
 
     @FXML

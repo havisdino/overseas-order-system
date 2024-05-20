@@ -1,5 +1,6 @@
 package frontend.controllers.salesdept;
 
+import backend.Order;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -24,6 +25,12 @@ public class OrderTagController {
     @FXML
     void detailButtonClicked(MouseEvent event) {
 
+    }
+
+    public void setData(Order order) {
+        descriptionLabel.setText(order.getDescription());
+        orderIDLabel.setText(order.getId());
+        desiredDateLabel.setText(order.getDateCreate().toString());
     }
 
 }

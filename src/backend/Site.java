@@ -11,7 +11,7 @@ public class Site {
     private DeliveryInfo deliveryInfo;
     private String name;
     private String otherInfo;
-//    private List<Merchandise> merchandiseList;
+    private List<Merchandise> merchandiseList;
 
     private SiteDatabase db;
 
@@ -24,17 +24,18 @@ public class Site {
         this.name = db.getName();
         this.deliveryInfo = db.getDeliveryInfo();
         this.otherInfo = db.getOtherInfo();
+        this.merchandiseList = db.getMerchandiseList(code);
     }
 
 
     public void addMerchandise(int quantity, String merchandiseCode) throws SQLException {
         db.addMerchandise(merchandiseCode, code, quantity);
+        merchandiseList = db.getMerchandiseList(code);
     }
 
-    public List<Merchandise> getMerchandise() throws SQLException {
-        return db.getMerchandiseList(code);
+    public List<Merchandise> getMerchandise() {
+        return merchandiseList;
     }
-
 
     public void deleteMerchandise(String... merchandiseCodes) {
         for (String code : merchandiseCodes) {

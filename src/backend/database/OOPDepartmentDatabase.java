@@ -1,5 +1,5 @@
 package backend.database;
 
-public interface OOPDepartmentDatabase {
+public interface OOPDepartmentDatabase extends Database {
 
 }

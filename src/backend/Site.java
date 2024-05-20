@@ -11,7 +11,7 @@ public class Site {
     private DeliveryInfo deliveryInfo;
     private String name;
     private String otherInfo;
-    private List<Merchandise> merchandiseList;
+//    private List<Merchandise> merchandiseList;
 
     private SiteDatabase db;
 
@@ -23,29 +23,26 @@ public class Site {
         db.loadSiteInfo(code);
         this.name = db.getName();
         this.deliveryInfo = db.getDeliveryInfo();
-        this.merchandiseList = db.getMerchandiseList(code);
         this.otherInfo = db.getOtherInfo();
     }
 
 
-    public void addMerchandise (int quantity, String... merchandiseCodes) throws SQLException {
-        for (String merchandiseCode : merchandiseCodes) {
-            db.addMerchandise(merchandiseCode, code, quantity);
-        }
+    public void addMerchandise(int quantity, String merchandiseCode) throws SQLException {
+        db.addMerchandise(merchandiseCode, code, quantity);
     }
 
-    public List<Merchandise> getMerchandise () throws SQLException {
+    public List<Merchandise> getMerchandise() throws SQLException {
         return db.getMerchandiseList(code);
     }
 
 
-    public void deleteMerchandise (String... merchandiseCodes) {
+    public void deleteMerchandise(String... merchandiseCodes) {
         for (String code : merchandiseCodes) {
 //            db.deleteMerchandise(code)
         }
     }
 
-    public void editMerchandise (MerchandiseInfoPair<String, Integer>... merchandiseInfoPairs) {
+    public void editMerchandise(MerchandiseInfoPair<String, Integer>... merchandiseInfoPairs) {
         for (MerchandiseInfoPair<String, Integer> merchandiseInfoPair : merchandiseInfoPairs) {
 //            db.edit(merchandiseInfoPair.getMerchandiseCode(), merchandiseInfoPair.getProductQuantity());
         }

@@ -6,7 +6,10 @@ import backend.Order;
 import backend.Site;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
@@ -28,7 +31,15 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
         List<Order> orderList = new ArrayList<>();
         while (results.next()) {
             String orderID = results.getString("id");
-            Date dateCreate = results.getDate("dateCreate");
+            String pattern = "yyyy-MM-dd";
+            SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+            String datecreate = results.getString("datecreated");
+            Date dateCreate = null;
+            try {
+                dateCreate = dateFormat.parse(datecreate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             String description = results.getString("description");
 
             query = "select merchandise.code, merchandise.name, merchandise.quantity, merchandise.deliverydate from order_merchandise join merchandise on order_merchandise.mercode = merchandise.code where orderid =" + orderID;

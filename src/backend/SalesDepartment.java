@@ -14,7 +14,6 @@ public class SalesDepartment {
         // initialize the databases
     }
 
-
     public void createOrder(Order order) {
         try {
             salesDepartmentDatabase.createOrder(order, id);

@@ -1,8 +1,6 @@
 package backend.database;
-
 import backend.DeliveryInfo;
 import backend.Merchandise;
-import backend.RawMerchandise;
 
 import java.sql.SQLException;
 import java.util.List;

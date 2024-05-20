@@ -1,33 +1,38 @@
 package backend.database;
 
 import backend.Config;
-import java.sql.*;
+import backend.Merchandise;
+import backend.Order;
+import backend.Site;
 
-public class SQLiteAccountDatabase implements AccountDatabase {
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
     private Connection connection;
     private String url;
 
-    public SQLiteAccountDatabase() {
+    public SQLiteOOPDeptDatabase() throws Exception {
         String dbPath = Config.getInstance().getDbPath();
         url = "jdbc:sqlite:" + dbPath;
     }
 
     @Override
-    public String findUserRole(String username, String password) throws SQLException {
-        connect();
+    public List<Order> getOrderList(String OOPDeptID) throws SQLException {
         Statement stmt = connection.createStatement();
-        String query = "select role from account where username = '" + username + "' and password = '" + password +"'";
-        ResultSet result = stmt.executeQuery(query);
-        String role = result.getString("role");
+
+        String query = "select id from order_ where oopdeptid =" + OOPDeptID;
+        ResultSet results = stmt.executeQuery(query);
         stmt.close();
-        close();
-        return role;
+        return null;
     }
 
     @Override
     public void connect() throws SQLException {
         this.connection = DriverManager.getConnection(url);
     }
+
     @Override
     public void close() throws SQLException {
         connection.close();

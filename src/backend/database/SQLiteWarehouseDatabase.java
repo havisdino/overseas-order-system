@@ -21,7 +21,7 @@ public class SQLiteWarehouseDatabase implements WarehouseDatabase {
         Statement stmt = connection.createStatement();
         String id = String.valueOf(Instant.now().getEpochSecond());
         String query = "insert into order (id, warehouseid) values (" +
-                id + "," + wareHouseID + ")" ;
+                id + "," + wareHouseID + ")";
         stmt.executeUpdate(query);
         stmt.close();
     }

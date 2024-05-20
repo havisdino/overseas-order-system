@@ -28,7 +28,7 @@ public class AddMerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            RawMerchandiseDatabase db = new SQLiteRawMerchandiseDatabase(Config.getInstance().getDbPath());
+            RawMerchandiseDatabase db = new SQLiteRawMerchandiseDatabase();
             List<RawMerchandise> merchandises = db.getMerchandises();
             addRawMerTag(merchandises);
         } catch (Exception e) {

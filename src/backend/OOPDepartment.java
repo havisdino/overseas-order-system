@@ -24,11 +24,12 @@ public class OOPDepartment {
     }
 
     public List<Site> getSites() {
-        try {
-            return siteDatabase.getSiteList();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+//        try {
+//            return siteDatabase.getSiteList();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+        return null;
     }
 }

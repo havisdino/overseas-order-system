@@ -58,7 +58,7 @@
                                  </padding>
                               </VBox>
                               <Label layoutX="231.0" layoutY="30.0" prefWidth="80.0" styleClass="normal-text" text="Tube" />
-                              <TextField prefWidth="150.0" promptText="mm/dd/yyyy" />
+                              <TextField prefWidth="150.0" promptText="yyyy/mm/dd" />
                               <HBox alignment="CENTER_RIGHT" spacing="20.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <Button layoutX="170.0" layoutY="10.0" mnemonicParsing="false" prefWidth="67.5" style="-fx-text-fill: -color-accent-6;" text="Add" />

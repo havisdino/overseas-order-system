@@ -22,6 +22,7 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
 
         String query = "select id from order_ where oopdeptid =" + OOPDeptID;
         ResultSet results = stmt.executeQuery(query);
+        return null;
     }
 
     @Override

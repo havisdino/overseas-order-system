@@ -60,6 +60,8 @@ public class AddMerController implements Initializable {
         for (Merchandise m : cart) {
             site.addMerchandise(m.getQuantity(), m.getCode());
         }
+        System.out.println("Added successfully");
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
 }

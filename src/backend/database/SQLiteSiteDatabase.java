@@ -1,15 +1,14 @@
 package backend.database;
 
 import backend.Merchandise;
-import backend.Order;
 
 import java.sql.*;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SQLiteSiteDatabase implements SiteDatabase {
     private Connection connection;
+
     public SQLiteSiteDatabase(String dbPath) throws Exception {
         String url = "jdbc:sqlite:" + dbPath;
         this.connection = DriverManager.getConnection(url);

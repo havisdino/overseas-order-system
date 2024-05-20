@@ -1,6 +1,7 @@
 package frontend.controllers.salesdept;
 
 import backend.Site;
+import frontend.controllers.UniversalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +22,7 @@ public class SalesDepartmentController implements Initializable {
 
     @FXML
     void logoutButtonClicked(ActionEvent event) {
-
+        UniversalController.getController().activate("login");
     }
 
     @FXML

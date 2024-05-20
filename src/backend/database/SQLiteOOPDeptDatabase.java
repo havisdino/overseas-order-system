@@ -22,10 +22,36 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
     public List<Order> getOrderList(String OOPDeptID) throws SQLException {
         Statement stmt = connection.createStatement();
 
-        String query = "select id from order_ where oopdeptid =" + OOPDeptID;
+        String query = "select order_.id, order_.dateCreate, order_.description from oopdept_order join order_ on oopdept_order.orderid = order_.id where oopdept_order.oopdeptid =" + OOPDeptID;
         ResultSet results = stmt.executeQuery(query);
+
+        List<Order> orderList = new ArrayList<>();
+        while (results.next()) {
+            String orderID = results.getString("id");
+            Date dateCreate = results.getDate("dateCreate");
+            String description = results.getString("description");
+
+            query = "select merchandise.code, merchandise.name, merchandise.quantity, merchandise.deliverydate from order_merchandise join merchandise on order_merchandise.mercode = merchandise.code where orderid =" + orderID;
+            ResultSet merchandises = stmt.executeQuery(query);
+            List<Merchandise> merchandiseList = new ArrayList<>();
+
+            while (merchandises.next()) {
+                String merchandiseCode = merchandises.getString("code");
+                String name = merchandises.getString("name");
+                String unit = merchandises.getString("unit");
+                int quantity = merchandises.getInt("quantity");
+                Date deliveryDate = merchandises.getDate("deliverydate");
+                Merchandise merchandiseObj = new Merchandise(merchandiseCode , name, unit, quantity, deliveryDate);
+                merchandiseList.add(merchandiseObj);
+            }
+
+            Order orderObj = new Order(orderID, merchandiseList, dateCreate, description);
+            orderList.add(orderObj);
+        }
+
+        stmt.executeUpdate(query);
         stmt.close();
-        return null;
+        return orderList;
     }
 
     @Override

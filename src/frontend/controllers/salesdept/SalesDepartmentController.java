@@ -1,6 +1,6 @@
 package frontend.controllers.salesdept;
 
-import backend.Site;
+import backend.SalesDepartment;
 import frontend.controllers.UniversalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

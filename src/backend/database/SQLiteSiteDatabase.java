@@ -23,8 +23,8 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     @Override
     public void addMerchandise(String merchandiseCode, String siteCode, int quantity) throws SQLException {
         Statement stmt = connection.createStatement();
-        String query = "insert into site_merchandise (sitecode, mercode, quantity) values (" +
-                siteCode + "," + merchandiseCode + "," + quantity + ")";
+        String query = "insert into site_merchandise (sitecode, mercode, quantity) values ('" +
+                siteCode + "','" + merchandiseCode + "','" + quantity + "')";
         stmt.executeUpdate(query);
         stmt.close();
     }
@@ -43,14 +43,14 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     public List<Merchandise> getMerchandiseList(String siteCode) throws SQLException {
         Statement stmt = connection.createStatement();
 
-        String query = "select mercode, quantity from site_merchandise where sitecode = " + siteCode;
+        String query = "select mercode, quantity from site_merchandise where sitecode = '" + siteCode + "'";
         ResultSet results = stmt.executeQuery(query);
 
         List<Merchandise> merchandiseList = new ArrayList<>();
         while (results.next()) {
             String merchandiseCode = results.getString("mercode");
             int merchandiseQuantity = results.getInt("quantity");
-            query = "select name, unit from rawmerchandise where code = " + merchandiseCode;
+            query = "select name, unit from rawmerchandise where code = '" + merchandiseCode + "'";
             ResultSet merchandiseInfo = stmt.executeQuery(query);
             String merchandiseName = merchandiseInfo.getString("name");
             String merchandiseUnit = merchandiseInfo.getString("unit");
@@ -66,7 +66,7 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     public void loadSiteInfo(String siteCode) throws SQLException {
         Statement stmt = connection.createStatement();
 
-        String query = "select name, daysByShip, daysByAir, otherInfo from site where code = " + siteCode;
+        String query = "select name, daysByShip, daysByAir, otherInfo from site where code = '" + siteCode + "'";
         ResultSet results = stmt.executeQuery(query);
 
         String name = results.getString("name");

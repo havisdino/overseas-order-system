@@ -1,16 +1,15 @@
 package backend.database;
 
 import backend.Config;
-
 import java.sql.*;
 
 public class SQLiteAccountDatabase implements AccountDatabase {
-    Connection connection;
+    private Connection connection;
+    private String url;
 
-    public SQLiteAccountDatabase() throws Exception {
+    public SQLiteAccountDatabase() {
         String dbPath = Config.getInstance().getDbPath();
-        String url = "jdbc:sqlite:" + dbPath;
-        this.connection = DriverManager.getConnection(url);
+        url = "jdbc:sqlite:" + dbPath;
     }
 
     @Override
@@ -19,5 +18,15 @@ public class SQLiteAccountDatabase implements AccountDatabase {
         String query = "select role from account where username = '" + username + "' and password = '" + password +"'";
         ResultSet result = stmt.executeQuery(query);
         return result.getString("role");
+    }
+
+    @Override
+    public void connect() throws SQLException {
+        this.connection = DriverManager.getConnection(url);
+    }
+
+    @Override
+    public void close() throws SQLException {
+        connection.close();
     }
 }

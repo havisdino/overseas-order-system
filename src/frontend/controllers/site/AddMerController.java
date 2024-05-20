@@ -29,7 +29,7 @@ public class AddMerController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             RawMerchandiseDatabase db = new SQLiteRawMerchandiseDatabase();
-            List<RawMerchandise> merchandises = db.getMerchandises();
+            List<RawMerchandise> merchandises = db.getMerchandisesExceptSite(Config.getInstance().getUsername());
             addRawMerTag(merchandises);
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,6 +60,8 @@ public class AddMerController implements Initializable {
         for (Merchandise m : cart) {
             site.addMerchandise(m.getQuantity(), m.getCode());
         }
+        System.out.println("Added successfully");
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
 }

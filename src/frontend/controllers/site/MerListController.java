@@ -34,6 +34,7 @@ public class MerListController implements Initializable {
         try{
             Site site = new Site(config.getUsername());
             List<Merchandise> merchandises = site.getMerchandise();
+            System.out.println(merchandises);
             addMerTags(merchandises);
         } catch (Exception e) {
             e.printStackTrace();

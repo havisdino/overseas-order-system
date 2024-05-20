@@ -4,6 +4,7 @@ import backend.Merchandise;
 import backend.RawMerchandise;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -13,6 +14,9 @@ public class AddMerTagController {
     List<Merchandise> cart;
     RawMerchandise rawMerchandise;
     Merchandise merchandise;
+
+    @FXML
+    private Button addButton;
 
     @FXML
     private Label mercodeLabel;
@@ -37,6 +41,7 @@ public class AddMerTagController {
         );
         merchandise.setQuantity(quantity);
         cart.add(merchandise);
+        addButton.setVisible(false);
         System.out.println(cart);
     }
 

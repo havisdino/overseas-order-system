@@ -19,4 +19,16 @@ public class Order {
     public String getDescription() {
         return description;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public List<Merchandise> getMerchandiseList() {
+        return merchandiseList;
+    }
+
+    public Date getDateCreate() {
+        return dateCreate;
+    }
 }

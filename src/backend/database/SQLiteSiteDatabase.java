@@ -59,6 +59,7 @@ public class SQLiteSiteDatabase implements SiteDatabase {
         close();
         return merchandiseList;
     }
+
     @Override
     public void loadSiteInfo(String siteCode) throws SQLException {
         connect();

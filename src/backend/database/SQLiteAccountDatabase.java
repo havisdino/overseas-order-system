@@ -27,7 +27,6 @@ public class SQLiteAccountDatabase implements AccountDatabase {
     public void connect() throws SQLException {
         this.connection = DriverManager.getConnection(url);
     }
-
     @Override
     public void close() throws SQLException {
         connection.close();

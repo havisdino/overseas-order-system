@@ -59,9 +59,6 @@ public class SQLiteSiteDatabase implements SiteDatabase {
 
         return merchandiseList;
     }
-
-<<<<<<< HEAD
-=======
     @Override
     public void loadSiteInfo(String siteCode) throws SQLException {
         Statement stmt = connection.createStatement();
@@ -90,6 +87,3 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     public String getOtherInfo() {
         return otherInfo;
     }
->>>>>>> c212a3b472c0dca2625f3d2976e9f08717715484
-
-}

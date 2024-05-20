@@ -18,7 +18,7 @@ public class Site {
     public Site(String code) throws Exception {
         this.code = code;
 
-        this.db = new SQLiteSiteDatabase(Config.getInstance().getDbPath());
+        this.db = new SQLiteSiteDatabase();
 
         db.loadSiteInfo(code);
         this.name = db.getName();

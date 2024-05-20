@@ -40,6 +40,25 @@ public class SQLiteRawMerchandiseDatabase implements RawMerchandiseDatabase {
         return merchandiseList;
     }
 
+    public List<RawMerchandise> getMerchandisesExceptSite(String siteCode) throws SQLException {
+        connect();
+        Statement stmt = connection.createStatement();
+
+        String query = "select * from rawmerchandise where code not in (select mercode from site_merchandise where sitecode = " + siteCode + ")";
+        ResultSet results = stmt.executeQuery(query);
+
+        List<RawMerchandise> merchandiseList = new ArrayList<>();
+        while (results.next()) {
+            String code = results.getString("code");
+            String name = results.getString("name");
+            String unit = results.getString("unit");
+            merchandiseList.add(new RawMerchandise(code, name, unit));
+        }
+        stmt.close();
+        close();
+        return merchandiseList;
+    }
+
     @Override
     public void connect() throws SQLException {
         this.connection = DriverManager.getConnection(url);

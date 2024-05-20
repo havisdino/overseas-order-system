@@ -3,6 +3,7 @@ package backend.database;
 import backend.Config;
 import backend.DeliveryInfo;
 import backend.Merchandise;
+import backend.RawMerchandise;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -56,6 +57,7 @@ public class SQLiteSiteDatabase implements SiteDatabase {
         close();
         return merchandiseList;
     }
+
 
     @Override
     public void loadSiteInfo(String siteCode) throws SQLException {

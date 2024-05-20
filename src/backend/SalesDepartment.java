@@ -1,6 +1,8 @@
 package backend;
+import backend.database.SQLiteSalesDeptDatabase;
 import backend.database.SalesDepartmentDatabase;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class SalesDepartment {
@@ -9,9 +11,9 @@ public class SalesDepartment {
     private SalesDepartmentDatabase salesDepartmentDatabase;
     private RawMerchandise rawMerchandise;
 
-    public SalesDepartment(String id) {
+    public SalesDepartment(String id) throws Exception {
         this.id = id;
-        // initialize the databases
+        salesDepartmentDatabase = new SQLiteSalesDeptDatabase();
     }
 
     public void createOrder(Order order) {

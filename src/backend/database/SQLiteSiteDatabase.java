@@ -1,15 +1,19 @@
 package backend.database;
 
+import backend.DeliveryInfo;
 import backend.Merchandise;
-import backend.Order;
+import backend.Site;
 
 import java.sql.*;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SQLiteSiteDatabase implements SiteDatabase {
     private Connection connection;
+    private String name;
+    private DeliveryInfo deliveryInfo;
+    private String otherInfo;
+
     public SQLiteSiteDatabase(String dbPath) throws Exception {
         String url = "jdbc:sqlite:" + dbPath;
         this.connection = DriverManager.getConnection(url);
@@ -54,4 +58,34 @@ public class SQLiteSiteDatabase implements SiteDatabase {
 
         return merchandiseList;
     }
+
+    @Override
+    public void loadSiteInfo(String siteCode) throws SQLException {
+        Statement stmt = connection.createStatement();
+
+        String query = "select name, daysByShip, daysByAir, otherInfo from site where code = " + siteCode;
+        ResultSet results = stmt.executeQuery(query);
+
+        String name = results.getString("name");
+        int daysByShip = results.getInt("daysByShip");
+        int daysByAir = results.getInt("daysByAir");
+        String otherInfo = results.getString("otherInfo");
+
+        this.name = name;
+        this.deliveryInfo = new DeliveryInfo(daysByShip, daysByAir);
+        this.otherInfo = otherInfo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public DeliveryInfo getDeliveryInfo() {
+        return deliveryInfo;
+    }
+
+    public String getOtherInfo() {
+        return otherInfo;
+    }
+
 }

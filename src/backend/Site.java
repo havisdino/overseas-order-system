@@ -11,20 +11,23 @@ public class Site {
     private DeliveryInfo deliveryInfo;
     private String name;
     private String otherInfo;
+    private List<Merchandise> merchandiseList;
 
     private SiteDatabase db;
 
-    public Site(String code, DeliveryInfo deliveryInfo, String name, String otherInfo, SiteDatabase db) throws Exception {
+    public Site(String code) throws Exception {
         this.code = code;
-        this.deliveryInfo = deliveryInfo;
-        this.name = name;
-        this.otherInfo = otherInfo;
+
         this.db = new SQLiteSiteDatabase("");
+
+        db.loadSiteInfo(code);
+        this.name = db.getName();
+        this.deliveryInfo = db.getDeliveryInfo();
+        this.merchandiseList = db.getMerchandiseList(code);
+        this.otherInfo = db.getOtherInfo();
     }
 
-//    public int findMerchandise (String merchandiseCode) {
-//        return db.countProduct(merchandiseCode)
-//    }
+
     public void addMerchandise (int quantity, String... merchandiseCodes) throws SQLException {
         for (String merchandiseCode : merchandiseCodes) {
             db.addMerchandise(merchandiseCode, code, quantity);

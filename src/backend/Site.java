@@ -31,8 +31,8 @@ public class Site {
         }
     }
 
-    public void getMerchandise () throws SQLException {
-        db.getMerchandiseList(code);
+    public List<Merchandise> getMerchandise () throws SQLException {
+        return db.getMerchandiseList(code);
     }
 
 

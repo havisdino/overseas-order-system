@@ -44,7 +44,7 @@ public class SQLiteRawMerchandiseDatabase implements RawMerchandiseDatabase {
         connect();
         Statement stmt = connection.createStatement();
 
-        String query = "select * from rawmerchandise where code not in (select mercode from site_merchandise where sitecode = " + siteCode + ")";
+        String query = "select * from rawmerchandise where code not in (select mercode from site_merchandise where sitecode = '" + siteCode + "')";
         ResultSet results = stmt.executeQuery(query);
 
         List<RawMerchandise> merchandiseList = new ArrayList<>();

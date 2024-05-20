@@ -8,4 +8,5 @@ import java.util.List;
 public interface RawMerchandiseDatabase extends Database {
     RawMerchandise findRawMerchandise(String merchandiseCode) throws SQLException;
     List<RawMerchandise> getMerchandises() throws SQLException;
+    List<RawMerchandise> getMerchandisesExceptSite(String siteCode) throws SQLException;
 }

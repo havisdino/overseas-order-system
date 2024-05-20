@@ -22,12 +22,6 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
 
         String query = "select id from order_ where oopdeptid =" + OOPDeptID;
         ResultSet results = stmt.executeQuery(query);
-
-        Order orderObj = new Order(orderID, merchandiseList, dateCreate);
-        orderList.add(orderObj);
-        stmt.executeUpdate(query);
-        stmt.close();
-        return orderList;
     }
 
     @Override

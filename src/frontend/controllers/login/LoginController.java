@@ -1,22 +1,14 @@
 package frontend.controllers.login;
 
+import backend.Config;
 import backend.database.AccountDatabase;
+import backend.database.SQLiteAccountDatabase;
 import frontend.controllers.UniversalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class LoginController implements Initializable {
-    AccountDatabase accDB;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Initialize accDB here
-    }
+public class LoginController {
 
     @FXML
     private TextField passwordField;
@@ -25,7 +17,10 @@ public class LoginController implements Initializable {
     private TextField usernameField;
 
     @FXML
-    void loginButtonClicked(ActionEvent event) {
+    void loginButtonClicked(ActionEvent event) throws Exception {
+        Config config = Config.getInstance();
+        AccountDatabase accDB = new SQLiteAccountDatabase();
+
         String username = usernameField.getText();
         String password = passwordField.getText();
 
@@ -36,6 +31,9 @@ public class LoginController implements Initializable {
             usernameField.clear();
             passwordField.clear();
         } else {
+            config.setUsername(username);
+            config.setPassword(password);
+            config.setRole(role);
             UniversalController.getController().activate(role);
         }
     }

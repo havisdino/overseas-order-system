@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<VBox prefHeight="600.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.oopdept.SiteInfoController">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="700.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.oopdept.SiteInfoController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
    </padding>
@@ -23,7 +28,7 @@
                      <children>
                         <Label styleClass="normal-text" text="Order ID:" />
                         <Label layoutX="10.0" layoutY="10.0" styleClass="normal-text" text="Sales department ID:" />
-                        <Label layoutX="10.0" layoutY="44.0" styleClass="normal-text" text="Desired delivary date:" />
+                        <Label layoutX="10.0" layoutY="44.0" styleClass="normal-text" text="Date created:" />
                      </children>
                   </VBox>
                   <VBox layoutX="10.0" layoutY="10.0" spacing="5.0">
@@ -67,7 +72,7 @@
                               </TextField>
                               <VBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button mnemonicParsing="false" style="-fx-text-fill: -color-accent-6;" text="Done" />
+                                    <Button mnemonicParsing="false" style="-fx-text-fill: -color-accent-6;" text="Add" />
                                  </children>
                               </VBox>
                            </children>
@@ -84,10 +89,23 @@
             </ScrollPane>
          </children>
       </VBox>
-      <Label layoutX="30.0" layoutY="223.0" style="-fx-font-style: italic; -fx-text-fill: -color-base-5;" styleClass="normal-text" text="* Sites in which the delivery date is later than the desired delivery date were filtered out of this list" wrapText="true" />
-      <HBox alignment="CENTER_RIGHT">
+      <HBox spacing="20.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#cancelButtonClicked" style="-fx-text-fill: -color-danger-7;" text="Cancel" />
+            <Label styleClass="normal-text" text="Selected:" />
+            <Label styleClass="normal-text" text="0/10" />
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+      <Label layoutX="30.0" layoutY="223.0" style="-fx-font-style: italic; -fx-text-fill: -color-base-5;" styleClass="normal-text" text="* Sites in which the delivery date is later than the desired delivery date were filtered out of this list" wrapText="true" />
+      <HBox alignment="CENTER_RIGHT" spacing="10.0">
+         <children>
+            <Button cancelButton="true" mnemonicParsing="false" onAction="#cancelButtonClicked" style="-fx-text-fill: -color-danger-7;" text="Cancel" />
+            <Button layoutX="676.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancelButtonClicked" style="-fx-text-fill: -color-accent-6;" text="Done" />
          </children>
       </HBox>
    </children>

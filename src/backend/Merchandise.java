@@ -1,5 +1,5 @@
 package backend;
-import java.time.LocalDate;
+
 import java.util.Date;
 
 public class Merchandise extends RawMerchandise {
@@ -10,6 +10,11 @@ public class Merchandise extends RawMerchandise {
         super(code, name, unit);
         this.quantity = quantity;
         this.deliveryDate = deliveryDate;
+    }
+
+    public Merchandise(String code, String name, String unit, int quantity) {
+        super(code, name, unit);
+        this.quantity = quantity;
     }
 
     public int getQuantity() {

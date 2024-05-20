@@ -2,6 +2,6 @@ package backend.database;
 
 import backend.RawMerchandise;
 
-public interface RawMerchandiseDabatase {
+public interface RawMerchandiseDatabase {
     RawMerchandise findRawMerchandise(String merchandiseCode);
 }

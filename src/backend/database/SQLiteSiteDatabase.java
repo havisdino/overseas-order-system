@@ -46,7 +46,7 @@ public class SQLiteSiteDatabase implements SiteDatabase {
 
         List<Merchandise> merchandiseList = new ArrayList<>();
         while (results.next()) {
-            String merchandiseCode = results.getString("merchandiseCode");
+            String merchandiseCode = results.getString("mercode");
             int merchandiseQuantity = results.getInt("quantity");
             query = "select name, unit from rawmerchandise where code = " + merchandiseCode;
             ResultSet merchandiseInfo = stmt.executeQuery(query);

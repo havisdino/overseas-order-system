@@ -2,11 +2,6 @@ package backend.database;
 
 import backend.Merchandise;
 import backend.Order;
-<<<<<<< HEAD
-import org.sqlite.SQLiteConnection;
-import java.text.DateFormat;
-=======
->>>>>>> backup
 
 import java.sql.*;
 import java.text.SimpleDateFormat;

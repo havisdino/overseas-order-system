@@ -12,5 +12,4 @@ public interface SiteDatabase {
     void deleteMerchandise(String merchandiseCode, String siteCode) throws SQLException;
     void editMerchandise(String merchandiseCode, String siteCode, int merchandiseQuantity) throws SQLException;
     List<Merchandise> getMerchandiseList(String siteCode) throws SQLException;
-    List<Site> getSiteList(String merchandiseCode) throws SQLException;
 }

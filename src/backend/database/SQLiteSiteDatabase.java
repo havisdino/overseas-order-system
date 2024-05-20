@@ -38,10 +38,5 @@ public class SQLiteSiteDatabase implements SiteDatabase {
         return null;
     }
 
-    @Override
-    public List<Site> getSiteList(String merchandiseCode) throws SQLException {
-
-    }
-
 
 }

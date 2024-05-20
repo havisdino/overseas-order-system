@@ -37,7 +37,7 @@ public class SalesDepartmentController extends Switchable implements Initializab
     void addOrderTags(List<Order> orders) throws Exception {
         for (Order order : orders) {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/frontend/fxml/salesdept/OrderTag.fxml.fxml"));
+            loader.setLocation(getClass().getResource("/frontend/fxml/salesdept/OrderTag.fxml"));
             HBox orderTag = loader.load();
             OrderTagController orderTagController = loader.getController();
 

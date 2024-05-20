@@ -13,6 +13,7 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     private DeliveryInfo deliveryInfo;
     private String otherInfo;
 
+
     public SQLiteSiteDatabase(String dbPath) throws Exception {
         String url = "jdbc:sqlite:" + dbPath;
         this.connection = DriverManager.getConnection(url);

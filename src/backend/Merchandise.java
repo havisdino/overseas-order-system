@@ -1,5 +1,5 @@
 package backend;
-import java.time.LocalDate;
+
 import java.util.Date;
 
 public class Merchandise extends RawMerchandise {

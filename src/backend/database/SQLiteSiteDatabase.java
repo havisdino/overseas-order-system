@@ -2,7 +2,6 @@ package backend.database;
 
 import backend.DeliveryInfo;
 import backend.Merchandise;
-import backend.Site;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     @Override
     public void addMerchandise(String merchandiseCode, String siteCode, int quantity) throws SQLException {
         Statement stmt = connection.createStatement();
-        String query = "insert into site_merchandise (siteCode, merchandiseCode, quantity) values (" +
+        String query = "insert into site_merchandise (sitecode, mercode, quantity) values (" +
                 siteCode + "," + merchandiseCode + "," + quantity + ")";
         stmt.executeUpdate(query);
         stmt.close();
@@ -42,12 +41,12 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     public List<Merchandise> getMerchandiseList(String siteCode) throws SQLException {
         Statement stmt = connection.createStatement();
 
-        String query = "select merchandiseCode, quantity from site_merchandise where siteCode = " + siteCode;
+        String query = "select mercode, quantity from site_merchandise where sitecode = " + siteCode;
         ResultSet results = stmt.executeQuery(query);
 
         List<Merchandise> merchandiseList = new ArrayList<>();
         while (results.next()) {
-            String merchandiseCode = results.getString("merchandiseCode");
+            String merchandiseCode = results.getString("mercode");
             int merchandiseQuantity = results.getInt("quantity");
             query = "select name, unit from rawmerchandise where code = " + merchandiseCode;
             ResultSet merchandiseInfo = stmt.executeQuery(query);

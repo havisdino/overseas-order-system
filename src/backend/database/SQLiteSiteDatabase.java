@@ -3,6 +3,7 @@ package backend.database;
 import backend.Config;
 import backend.DeliveryInfo;
 import backend.Merchandise;
+import backend.Site;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -56,7 +57,6 @@ public class SQLiteSiteDatabase implements SiteDatabase {
         close();
         return merchandiseList;
     }
-
     @Override
     public void loadSiteInfo(String siteCode) throws SQLException {
         connect();
@@ -89,6 +89,8 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     public String getOtherInfo() {
         return otherInfo;
     }
+<<<<<<< HEAD
+=======
 
     @Override
     public void connect() throws SQLException {
@@ -100,3 +102,4 @@ public class SQLiteSiteDatabase implements SiteDatabase {
         connection.close();
     }
 }
+>>>>>>> fe27755fc65dfbe1c8541d69e3928b3cbe11e0d9

@@ -1,5 +1,6 @@
 package backend.database;
 
+import backend.Config;
 import backend.DeliveryInfo;
 import backend.Merchandise;
 import backend.Site;
@@ -13,40 +14,35 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     private String name;
     private DeliveryInfo deliveryInfo;
     private String otherInfo;
+    private String url;
 
 
-    public SQLiteSiteDatabase(String dbPath) throws Exception {
-        String url = "jdbc:sqlite:" + dbPath;
-        this.connection = DriverManager.getConnection(url);
+    public SQLiteSiteDatabase() throws Exception {
+        String dbPath = Config.getInstance().getDbPath();
+        url = "jdbc:sqlite:" + dbPath;
     }
 
     @Override
     public void addMerchandise(String merchandiseCode, String siteCode, int quantity) throws SQLException {
+        connect();
         Statement stmt = connection.createStatement();
         String query = "insert into site_merchandise (sitecode, mercode, quantity) values ('" +
                 siteCode + "','" + merchandiseCode + "','" + quantity + "')";
         stmt.executeUpdate(query);
         stmt.close();
-    }
-
-    @Override
-    public void deleteMerchandise(String merchandiseCode, String siteCode) throws SQLException {
-
-    }
-
-    @Override
-    public void editMerchandise(String merchandiseCode, String siteCode, int merchandiseQuantity) throws SQLException {
-
+        close();
     }
 
     @Override
     public List<Merchandise> getMerchandiseList(String siteCode) throws SQLException {
+        connect();
         Statement stmt = connection.createStatement();
 
         String query = "select mercode, quantity from site_merchandise where sitecode = '" + siteCode + "'";
         ResultSet results = stmt.executeQuery(query);
 
         List<Merchandise> merchandiseList = new ArrayList<>();
+
         while (results.next()) {
             String merchandiseCode = results.getString("mercode");
             int merchandiseQuantity = results.getInt("quantity");
@@ -57,10 +53,13 @@ public class SQLiteSiteDatabase implements SiteDatabase {
             merchandiseList.add(new Merchandise(merchandiseCode, merchandiseName, merchandiseUnit, merchandiseQuantity));
         }
 
+        stmt.close();
+        close();
         return merchandiseList;
     }
     @Override
     public void loadSiteInfo(String siteCode) throws SQLException {
+        connect();
         Statement stmt = connection.createStatement();
 
         String query = "select name, daysByShip, daysByAir, otherInfo from site where code = '" + siteCode + "'";
@@ -74,6 +73,9 @@ public class SQLiteSiteDatabase implements SiteDatabase {
         this.name = name;
         this.deliveryInfo = new DeliveryInfo(daysByShip, daysByAir);
         this.otherInfo = otherInfo;
+
+        stmt.close();
+        close();
     }
 
     public String getName() {
@@ -87,3 +89,17 @@ public class SQLiteSiteDatabase implements SiteDatabase {
     public String getOtherInfo() {
         return otherInfo;
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public void connect() throws SQLException {
+        this.connection = DriverManager.getConnection(url);
+    }
+
+    @Override
+    public void close() throws SQLException {
+        connection.close();
+    }
+}
+>>>>>>> fe27755fc65dfbe1c8541d69e3928b3cbe11e0d9

@@ -19,6 +19,7 @@ public class SQLiteAccountDatabase implements AccountDatabase {
         String query = "select role from account where username = '" + username + "' and password = '" + password +"'";
         ResultSet result = stmt.executeQuery(query);
         String role = result.getString("role");
+        stmt.close();
         close();
         return role;
     }

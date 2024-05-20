@@ -9,7 +9,7 @@ public interface RawMerchandiseDatabase {
 import java.sql.SQLException;
 import java.util.List;
 
-public interface RawMerchandiseDatabase {
+public interface RawMerchandiseDatabase extends Database {
     RawMerchandise findRawMerchandise(String merchandiseCode) throws SQLException;
     List<RawMerchandise> getMerchandises() throws SQLException;
 >>>>>>> 95c0ed0d8609d20ea30d5d2a4d5a9deb076c6c9a

@@ -114,7 +114,7 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
     }
 
     @Override
-    public List<String> getOOPDeptID() throws SQLException{
+    public List<String> getOOPDeptIDs() throws SQLException{
         connect();
         Statement stmt = connection.createStatement();
         String query = "select id from oopdept";

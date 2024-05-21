@@ -9,5 +9,5 @@ public interface SalesDepartmentDatabase extends Database {
     void createOrder(Order order) throws SQLException;
 
     List<Order> getOrderList(String salesDepartmentID) throws SQLException;
-    public List<String> getOOPDeptID() throws SQLException;
+    List<String> getOOPDeptIDs() throws SQLException;
 }

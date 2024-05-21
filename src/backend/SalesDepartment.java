@@ -32,6 +32,15 @@ public class SalesDepartment {
             return null;
         }
     }
+
+    public List<String> getOOPDeptIDs() {
+        try {
+            return salesDepartmentDatabase.getOOPDeptIDs();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
 
 

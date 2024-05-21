@@ -24,6 +24,8 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
     public void createOrder(Order order) throws SQLException {
         connect();
         Statement stmt = connection.createStatement();
+        Statement stmt1 = connection.createStatement();
+
         String id = order.getId();
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
@@ -31,9 +33,22 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
         String description = order.getDescription();
         String salesDepartmentID = order.getSalesDeptID();
         String oopDeptID = order.getOopDeptID();
+        for (Merchandise md: order.getMerchandiseList()) {
+            System.out.println(md.getCode());
+            System.out.println(md.getName());
+            System.out.println(md.getQuantity());
+        }
+
         String query = "insert into order_ (id, salesdeptid, datecreated, description, oopdeptid) values ('" +
                 id + "','" + salesDepartmentID + "','" + dateCreate + "','" +  description + "','" + oopDeptID + "')";
         stmt.executeUpdate(query);
+
+        for (Merchandise md: order.getMerchandiseList()) {
+            String query1 = "insert into (orderid, mercode) values ('" + order.getId() + "','" + md.getCode() + "')";
+            stmt1.executeUpdate(query1);
+        }
+
+        stmt1.close();
         stmt.close();
         close();
     }

@@ -46,7 +46,7 @@ public class NewOrderController extends Switchable implements Initializable {
     @FXML
     void doneButtonClicked(ActionEvent event) throws Exception {
         String desc = descField.getText();
-        Order order = new Order(cart, new Date(), desc);
+        Order order = new Order(cart, new Date(), desc, Config.getInstance().getUsername());
         SalesDepartment sd = new SalesDepartment(Config.getInstance().getUsername());
         sd.createOrder(order);
         close(event);

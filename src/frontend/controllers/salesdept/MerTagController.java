@@ -44,8 +44,13 @@ public class MerTagController {
                 new Date()
         );
         cart.add(merchandise);
-        addButton.setVisible(false);
+        disableButton(addButton);
         System.out.println(cart);
+    }
+
+    private void disableButton(Button button) {
+        button.setDisable(true);
+        button.setStyle("-fx-text-fill: -color-base-4");
     }
 
     public void setData(RawMerchandise m) {

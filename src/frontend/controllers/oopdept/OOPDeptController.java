@@ -1,34 +1,61 @@
 package frontend.controllers.oopdept;
 
-import backend.Config;
-import backend.OOPDepartment;
-import backend.Order;
 import frontend.controllers.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class OOPDeptController extends Switchable implements Initializable {
 
     @FXML
-    private VBox mainVBox;
+    private Button cancellationButton;
+
+    @FXML
+    private Button homeButton;
+
+    @FXML
+    private HBox mainHBox;
+
+    private VBox mainPage;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        getHome();
+    }
+
+    private void alterPage(String fxmlUrl) {
+        if (mainPage != null) {
+            mainHBox.getChildren().remove(mainPage);
+        }
         try {
-            OOPDepartment oopDept = new OOPDepartment(Config.getInstance().getUsername());
-            List<Order> orders = oopDept.getOrderList();
-            addOrderTag(orders);
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource(fxmlUrl));
+            mainPage = loader.load();
+            HBox.setHgrow(mainPage, Priority.ALWAYS);
+            mainHBox.getChildren().add(mainPage);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void getHome() {
+        alterPage("/frontend/fxml/oopdept/HomePage.fxml");
+        disableButton(homeButton);
+        enableButton(cancellationButton);
+    }
+
+    private void goToCancellationPage() {
+        alterPage("/frontend/fxml/oopdept/CancellationPage.fxml");
+        disableButton(cancellationButton);
+        enableButton(homeButton);
     }
 
     @FXML
@@ -37,15 +64,24 @@ public class OOPDeptController extends Switchable implements Initializable {
         close(event);
     }
 
-    void addOrderTag(List<Order> orders) throws Exception {
-        for (Order order : orders) {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/frontend/fxml/oopdept/OrderTag.fxml"));
-            HBox orderTag = loader.load();
-            OrderTagController orderTagController = loader.getController();
 
-            orderTagController.setData(order);
-            mainVBox.getChildren().add(orderTag);
-        }
+    @FXML
+    void cancelledButtonClicked(ActionEvent event) {
+        goToCancellationPage();
+    }
+
+    @FXML
+    void homeButtonClicked(ActionEvent event) {
+        mainHBox.getChildren().remove(mainPage);
+        getHome();
+    }
+
+    private void disableButton(Button button) {
+        button.setStyle("-fx-text-fill: -color-accent-5; -fx-background-color: 0");
+    }
+
+    private void enableButton(Button button) {
+        button.setStyle("-fx-text-fill: black; -fx-background-color: 0");
+
     }
 }

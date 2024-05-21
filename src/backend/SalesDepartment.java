@@ -18,7 +18,7 @@ public class SalesDepartment {
 
     public void createOrder(Order order) {
         try {
-            salesDepartmentDatabase.createOrder(order, id);
+            salesDepartmentDatabase.createOrder(order);
         } catch (Exception e) {
             e.printStackTrace();
         }

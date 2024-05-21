@@ -16,6 +16,10 @@ public class OOPDepartment {
         oopDepartmentDatabase = new SQLiteOOPDeptDatabase();
     }
 
+    public OOPDepartment(String id) {
+        this.id = id;
+    }
+
     public List<Order> getOrderList() {
         try {
             return oopDepartmentDatabase.getOrderList(id);

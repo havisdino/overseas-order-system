@@ -1,5 +1,6 @@
 package backend;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
@@ -9,12 +10,21 @@ public class Order {
     private List<Merchandise> merchandiseList;
     private Date dateCreate;
     private String description;
+    private String salesDeptID;
 
     public Order(String id, List<Merchandise> merchandiseList, Date dateCreate, String description) {
         this.id = id;
         this.merchandiseList = merchandiseList;
         this.dateCreate = dateCreate;
         this.description = description;
+    }
+
+    public Order(List<Merchandise> merchandiseList, Date dateCreate, String description, String salesDeptID) {
+        this.id = String.valueOf(Instant.now());
+        this.merchandiseList = merchandiseList;
+        this.dateCreate = dateCreate;
+        this.description = description;
+        this.salesDeptID = salesDeptID;
     }
 
     public String getDescription() {
@@ -38,5 +48,13 @@ public class Order {
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
         String datecreate = dateFormat.format(dateCreate);
         return datecreate;
+    }
+
+    public Date getDateCreate() {
+        return dateCreate;
+    }
+
+    public String getSalesDeptID() {
+        return salesDeptID;
     }
 }

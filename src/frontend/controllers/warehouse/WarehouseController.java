@@ -1,6 +1,5 @@
 package frontend.controllers.warehouse;
 
-import frontend.controllers.UniversalController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

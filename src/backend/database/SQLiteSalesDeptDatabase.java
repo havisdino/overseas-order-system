@@ -8,7 +8,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.*;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
     public void createOrder(Order order, String salesDepartmentID) throws SQLException {
         connect();
         Statement stmt = connection.createStatement();
-        String id = String.valueOf(Instant.now().getEpochSecond());
+        String id = order.getId();
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
         String dateCreate = dateFormat.format(new Date());

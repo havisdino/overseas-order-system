@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -55,55 +54,7 @@
             </HBox>
             <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
                <content>
-                  <VBox alignment="TOP_CENTER" spacing="10.0" style="-fx-background-color: -color-back;" styleClass="rounded-corner">
-                     <children>
-                        <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0" style="-fx-background-color: white;" styleClass="rounded-corner">
-                           <children>
-                              <Label prefWidth="150.0" styleClass="normal-text" text="KEO502" wrapText="true" HBox.hgrow="ALWAYS" />
-                              <Label prefWidth="150.0" styleClass="normal-text" text="Super glue" wrapText="true" />
-                              <Label layoutX="30.0" layoutY="30.0" prefWidth="100.0" styleClass="normal-text" text="10" wrapText="true" HBox.hgrow="ALWAYS" />
-                              <Label layoutX="231.0" layoutY="30.0" prefWidth="100.0" styleClass="normal-text" text="Tube" />
-                              <Label layoutX="490.0" layoutY="30.0" prefWidth="100.0" text="Handled">
-                                 <styleClass>
-                                    <String fx:value="normal-text" />
-                                    <String fx:value="success-text" />
-                                 </styleClass>
-                              </Label>
-                              <Label layoutX="610.0" layoutY="30.0" prefWidth="180.0" styleClass="normal-text" text="10/18/2024" />
-                              <VBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Button mnemonicParsing="false" style="-fx-text-fill: -color-accent-6;" text="Search in sites" />
-                                 </children>
-                              </VBox>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                           </padding>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0" style="-fx-background-color: white;" styleClass="rounded-corner">
-                           <children>
-                              <Label prefWidth="150.0" styleClass="normal-text" text="KEO502" wrapText="true" HBox.hgrow="ALWAYS" />
-                              <Label prefWidth="150.0" styleClass="normal-text" text="Super glue" wrapText="true" />
-                              <Label layoutX="30.0" layoutY="30.0" prefWidth="100.0" styleClass="normal-text" text="10" wrapText="true" HBox.hgrow="ALWAYS" />
-                              <Label layoutX="231.0" layoutY="30.0" prefWidth="100.0" styleClass="normal-text" text="Tube" />
-                              <Label layoutX="490.0" layoutY="30.0" prefWidth="100.0" text="Not handled">
-                                 <styleClass>
-                                    <String fx:value="normal-text" />
-                                    <String fx:value="failed-text" />
-                                 </styleClass>
-                              </Label>
-                              <Label layoutX="610.0" layoutY="30.0" prefWidth="180.0" styleClass="normal-text" text="10/18/2024" />
-                              <VBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Button mnemonicParsing="false" style="-fx-text-fill: -color-accent-6;" text="Search in sites" />
-                                 </children>
-                              </VBox>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                           </padding>
-                        </HBox>
-                     </children>
+                  <VBox fx:id="mainVBox" alignment="TOP_CENTER" spacing="10.0" style="-fx-background-color: -color-back;" styleClass="rounded-corner">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>

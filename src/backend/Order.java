@@ -29,9 +29,18 @@ public class Order {
         this.description = description;
     }
 
+    public Order(String id, List<Merchandise> merchandiseList, Date dateCreate, String description, String salesDeptID) {
+        this.id = id;
+        this.merchandiseList = merchandiseList;
+        this.dateCreate = dateCreate;
+        this.description = description;
+        this.salesDeptID = salesDeptID;
+    }
+
     public String getOopDeptID() {
         return oopDeptID;
     }
+
 
     public String getDescription() {
         return description;

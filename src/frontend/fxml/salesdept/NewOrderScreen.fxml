@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="600.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.salesdept.NewOrderController">
+<VBox prefHeight="700.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.salesdept.NewOrderController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
    </padding>
@@ -32,7 +32,14 @@
                   <Insets right="20.0" />
                </VBox.margin>
             </Label>
-            <ChoiceBox fx:id="choiceBox" prefWidth="315.0" style="-fx-background-color: -color-back; -fx-background-radius: 0.8em;" />
+            <ChoiceBox fx:id="choiceBox" prefWidth="315.0" style="-fx-background-color: -color-back; -fx-background-radius: 0.8em;" styleClass="normal-text">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+            </ChoiceBox>
          </children>
          <VBox.margin>
             <Insets left="20.0" right="20.0" />

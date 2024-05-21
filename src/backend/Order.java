@@ -14,14 +14,13 @@ public class Order {
     private String oopDeptID;
 
     public Order(List<Merchandise> merchandiseList, Date dateCreate, String description, String salesDeptID, String oopDeptID) {
-        this.id = String.valueOf(Instant.now());
+        this.id = String.valueOf(System.currentTimeMillis());
         this.merchandiseList = merchandiseList;
         this.dateCreate = dateCreate;
         this.description = description;
         this.salesDeptID = salesDeptID;
         this.oopDeptID = oopDeptID;
     }
-
 
     public Order(String id, List<Merchandise> merchandiseList, Date dateCreate, String description) {
         this.id = id;

@@ -7,10 +7,6 @@ import frontend.controllers.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-<<<<<<< HEAD
-import javafx.scene.Node;
-=======
->>>>>>> dcf96b18ae4b23920a18ca20ef6e913496f205e8
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -44,11 +40,7 @@ public class LoginController extends Switchable {
             config.setRole(role);
 
             activateScreen(role);
-<<<<<<< HEAD
-            ((Node) (event.getSource())).getScene().getWindow().hide();
-=======
             close(event);
->>>>>>> dcf96b18ae4b23920a18ca20ef6e913496f205e8
         }
     }
 
@@ -57,20 +49,6 @@ public class LoginController extends Switchable {
         if (role.equals("site")) {
             url = "/frontend/fxml/site/MerListScreen.fxml";
         } else if (role.equals("salesdept")) {
-<<<<<<< HEAD
-            url = "/frontend/fxml/SalesDepartmentScreen.fxml";
-        } else if (role.equals("warehouse")) {
-            url = "/frontend/fxml/WarehouseScreen.fxml";
-        } else if (role.equals("oopdept")) {
-            url = "/frontend/fxml/OOPDeptScreen.fxml";
-        }
-
-        Parent root = FXMLLoader.load(getClass().getResource(url));
-        Stage stage = new Stage();
-        stage.setTitle("Add merchandises");
-        stage.setScene(new Scene(root));
-        stage.show();
-=======
             url = "/frontend/fxml/salesdept/SalesDepartmentScreen.fxml";
         } else if (role.equals("warehouse")) {
             url = "/frontend/fxml/warehouse/WarehouseScreen.fxml";
@@ -79,6 +57,5 @@ public class LoginController extends Switchable {
         }
         System.out.println(url);
         jump(url);
->>>>>>> dcf96b18ae4b23920a18ca20ef6e913496f205e8
     }
 }

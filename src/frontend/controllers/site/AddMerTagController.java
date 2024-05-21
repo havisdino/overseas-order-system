@@ -41,8 +41,12 @@ public class AddMerTagController {
         );
         merchandise.setQuantity(quantity);
         cart.add(merchandise);
-        addButton.setVisible(false);
-        System.out.println(cart);
+        disableButton(addButton);
+    }
+
+    private void disableButton(Button button) {
+        button.setDisable(true);
+        button.setStyle("-fx-text-fill: -color-base-4");
     }
 
     public void setCart(List<Merchandise> cart) {

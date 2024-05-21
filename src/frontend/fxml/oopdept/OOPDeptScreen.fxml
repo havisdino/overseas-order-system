@@ -15,7 +15,7 @@
                <children>
                   <HBox alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="150.0" onMouseClicked="#logoClicked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../assets/icons/logo.png" />
                            </image>

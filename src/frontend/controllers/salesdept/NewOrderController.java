@@ -41,9 +41,7 @@ public class NewOrderController extends Switchable implements Initializable {
             addMerTags(merchandises);
 
             SalesDepartment salesDept = new SalesDepartment(Config.getInstance().getUsername());
-//            List<String> oopDeptIDs = salesDept.getOOPDeptIDS();
-            List<String> oopDeptIDs = new ArrayList<>();
-            oopDeptIDs.add("oop");
+            List<String> oopDeptIDs = salesDept.getOOPDeptIDs();
             ObservableList<String> items = FXCollections.observableList(oopDeptIDs);
             choiceBox.setItems(items);
         } catch (Exception e) {

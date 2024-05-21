@@ -83,4 +83,29 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
     public void close() throws SQLException {
         connection.close();
     }
+
+    @Override
+    public void stashOrder(String orderID) throws SQLException {
+        connect();
+        Statement stmt = connection.createStatement();
+        String query = "insert into stashedorder (orderid) values ('" + orderID + "')";
+        stmt.executeUpdate(query);
+        stmt.close();
+        close();
+    }
+
+    @Override
+    public void removeStashedOrder(String orderID) throws SQLException {
+        connect();
+        Statement stmt = connection.createStatement();
+        String query = "delete from stashedorder where orderid = '" + orderID + "'";
+        stmt.executeUpdate(query);
+        stmt.close();
+        close();
+    }
+
+    @Override
+    public void addCancelledOrder(String orderID) {
+
+    }
 }

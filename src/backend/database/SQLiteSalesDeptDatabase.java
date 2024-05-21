@@ -44,7 +44,7 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
         stmt.executeUpdate(query);
 
         for (Merchandise md: order.getMerchandiseList()) {
-            String query1 = "insert into (orderid, mercode) values ('" + order.getId() + "','" + md.getCode() + "')";
+            String query1 = "insert into order_merchandise (orderid, mercode) values ('" + order.getId() + "','" + md.getCode() + "')";
             stmt1.executeUpdate(query1);
         }
 

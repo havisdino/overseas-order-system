@@ -24,4 +24,8 @@ public class Merchandise extends RawMerchandise {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public Date getDeliveryDate() {
+        return deliveryDate;
+    }
 }

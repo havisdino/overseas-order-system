@@ -65,7 +65,7 @@ insert into rawmerchandise (code, name, unit) values ('MIBOTAIWAN', 'Taiwanese b
 
 -- **************************************************************
 create table merchandise (
-    code varchar(50) primary key,
+    code varchar(50),
     name text,
     unit text,
     quantity int,

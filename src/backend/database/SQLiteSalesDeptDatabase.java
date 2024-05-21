@@ -48,6 +48,14 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
             stmt1.executeUpdate(query1);
         }
 
+        for (Merchandise md: order.getMerchandiseList()) {
+            pattern = "yyyy-MM-dd";
+            dateFormat = new SimpleDateFormat(pattern);
+            String deliveryDate = dateFormat.format(md.getDeliveryDate());
+            String query1 = "insert into merchandise (code, name, unit, quantity, deliverydate) values ('" + md.getCode() + "','" + md.getName() + "','" + md.getUnit() + "','" + md.getQuantity() + "','" + deliveryDate +  "')";
+            stmt1.executeUpdate(query1);
+        }
+
         stmt1.close();
         stmt.close();
         close();
@@ -94,7 +102,7 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
             List<Merchandise> merchandiseList = new ArrayList<>();
 
             while (mercodes.next()) {
-                String merchandiseCode = results.getString("code");
+                String merchandiseCode = mercodes.getString("mercode");
 
                 String query1 = "select name, unit, quantity, deliverydate from merchandise where code ='" + merchandiseCode + "'";
                 ResultSet merchandiseInfo = stmt3.executeQuery(query1);

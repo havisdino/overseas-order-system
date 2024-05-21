@@ -87,7 +87,7 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
     public List<SiteInfo> getSiteInfo(String merchandiseCode) throws SQLException {
         connect();
         Statement stmt = connection.createStatement();
-        String query = "select site.code, site.name, site_merchandise.quantity from site join site_merchandise on site.code = site_merchandise.sitecode where mercode ='" + merchandiseCode + "'";
+        String query = "select site.code, site.name, site_merchandise.quantity from site join site_merchandise on site.code = site_merchandise.sitecode where site_merchandise.mercode ='" + merchandiseCode + "'";
         ResultSet results = stmt.executeQuery(query);
 
         List<SiteInfo> siteInfoList = new ArrayList<>();

@@ -2,6 +2,7 @@
 *.iml
 OverseasOrderSystem.iml
 src/test
+sys.db
 
 
 ### IntelliJ IDEA ###

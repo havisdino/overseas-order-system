@@ -1,4 +1,5 @@
 package backend;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +29,14 @@ public class Order {
         return merchandiseList;
     }
 
-    public Date getDateCreate() {
+    public Date getDateCreated() {
         return dateCreate;
+    }
+
+    public String getDateCreatedInString() {
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+        String datecreate = dateFormat.format(dateCreate);
+        return datecreate;
     }
 }

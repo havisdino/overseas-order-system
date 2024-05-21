@@ -51,7 +51,16 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
                 String name = merchandises.getString("name");
                 String unit = merchandises.getString("unit");
                 int quantity = merchandises.getInt("quantity");
-                Date deliveryDate = merchandises.getDate("deliverydate");
+                String pattern1 = "yyyy-MM-dd";
+                SimpleDateFormat dateFormat1 = new SimpleDateFormat(pattern1);
+                String deliverydate = results.getString("deliverydate");
+                Date deliveryDate = null;
+                try {
+                    deliveryDate = dateFormat.parse(deliverydate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 Merchandise merchandiseObj = new Merchandise(merchandiseCode , name, unit, quantity, deliveryDate);
                 merchandiseList.add(merchandiseObj);
             }

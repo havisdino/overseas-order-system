@@ -1,5 +1,6 @@
 package backend;
 import backend.database.OOPDepartmentDatabase;
+import backend.database.SQLiteOOPDeptDatabase;
 import backend.database.SiteDatabase;
 
 import java.util.List;
@@ -10,8 +11,9 @@ public class OOPDepartment {
     private OOPDepartmentDatabase oopDepartmentDatabase;
     private SiteDatabase siteDatabase;
 
-    public OOPDepartment(String id, List<Order> orderList) {
-        this.orderList = orderList;
+    public OOPDepartment(String id) throws Exception {
+        this.id = id;
+        oopDepartmentDatabase = new SQLiteOOPDeptDatabase();
     }
 
     public List<Order> getOrderList() {

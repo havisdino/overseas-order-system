@@ -50,6 +50,8 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
     public List<Order> getOrderList(String salesDepartmentID) throws SQLException {
         connect();
         Statement stmt = connection.createStatement();
+        Statement stmt2 = connection.createStatement();
+        Statement stmt3 = connection.createStatement();
 
         String query = "select id, datecreated, description from order_ where salesdeptid ='" + salesDepartmentID + "'";
         ResultSet results = stmt.executeQuery(query);
@@ -71,14 +73,14 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
             String description = results.getString("description");
 
             query = "select mercode from order_merchandise where orderid ='" + orderID + "'";
-            ResultSet mercodes = stmt.executeQuery(query);
+            ResultSet mercodes = stmt2.executeQuery(query);
             List<Merchandise> merchandiseList = new ArrayList<>();
 
             while (mercodes.next()) {
                 String merchandiseCode = results.getString("code");
 
                 String query1 = "select name, unit, quantity, deliverydate from merchandise where code ='" + merchandiseCode + "'";
-                ResultSet merchandiseInfo = stmt.executeQuery(query1);
+                ResultSet merchandiseInfo = stmt3.executeQuery(query1);
                 String name = merchandiseInfo.getString("name");
                 String unit = merchandiseInfo.getString("unit");
                 int quantity = merchandiseInfo.getInt("quantity");
@@ -103,6 +105,8 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
         }
 
         stmt.executeUpdate(query);
+        stmt3.close();
+        stmt2.close();
         stmt.close();
         close();
         return orderList;

@@ -6,7 +6,10 @@ import backend.Order;
 import backend.Site;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
@@ -28,7 +31,15 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
         List<Order> orderList = new ArrayList<>();
         while (results.next()) {
             String orderID = results.getString("id");
-            Date dateCreate = results.getDate("dateCreate");
+            String pattern = "yyyy-MM-dd";
+            SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+            String datecreate = results.getString("datecreated");
+            Date dateCreate = null;
+            try {
+                dateCreate = dateFormat.parse(datecreate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             String description = results.getString("description");
 
             query = "select merchandise.code, merchandise.name, merchandise.quantity, merchandise.deliverydate from order_merchandise join merchandise on order_merchandise.mercode = merchandise.code where orderid =" + orderID;
@@ -40,7 +51,16 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
                 String name = merchandises.getString("name");
                 String unit = merchandises.getString("unit");
                 int quantity = merchandises.getInt("quantity");
-                Date deliveryDate = merchandises.getDate("deliverydate");
+                String pattern1 = "yyyy-MM-dd";
+                SimpleDateFormat dateFormat1 = new SimpleDateFormat(pattern1);
+                String deliverydate = results.getString("deliverydate");
+                Date deliveryDate = null;
+                try {
+                    deliveryDate = dateFormat.parse(deliverydate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 Merchandise merchandiseObj = new Merchandise(merchandiseCode , name, unit, quantity, deliveryDate);
                 merchandiseList.add(merchandiseObj);
             }

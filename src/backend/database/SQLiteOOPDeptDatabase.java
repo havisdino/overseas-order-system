@@ -33,6 +33,8 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
             String orderID = results.getString("id");
             String datecreate = results.getString("datecreated");
             String salesDeptID = results.getString("salesdeptid");
+            String description = results.getString("description");
+
             String pattern = "yyyy-MM-dd";
             SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 
@@ -43,19 +45,18 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
                 e.printStackTrace();
             }
 
-            String description = results.getString("description");
-
-            query = "select mercode from order_merchandise where orderid ='" + orderID + "'";
-            ResultSet mercodes = stmt2.executeQuery(query);
+            String query1 = "select mercode from order_merchandise where orderid ='" + orderID + "'";
+            ResultSet mercodes = stmt2.executeQuery(query1);
             List<Merchandise> merchandiseList = new ArrayList<>();
 
             while (mercodes.next()) {
-                String merchandiseCode = results.getString("code");
-
-                String query1 = "select name, unit, quantity, deliverydate from merchandise where code ='" + merchandiseCode + "'";
-                ResultSet merchandiseInfo = stmt3.executeQuery(query1);
+                String merchandiseCode = mercodes.getString("mercode");
+                String query2 = "select name, unit, quantity, deliverydate from merchandise where code ='" + merchandiseCode + "'";
+                ResultSet merchandiseInfo = stmt3.executeQuery(query2);
                 String name = merchandiseInfo.getString("name");
+                System.out.println(name);
                 String unit = merchandiseInfo.getString("unit");
+                System.out.println(unit);
                 int quantity = merchandiseInfo.getInt("quantity");
 
                 String pattern1 = "yyyy-MM-dd";

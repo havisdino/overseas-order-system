@@ -106,7 +106,6 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
             orderList.add(orderObj);
         }
 
-        stmt.executeUpdate(query);
         stmt3.close();
         stmt2.close();
         stmt.close();

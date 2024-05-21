@@ -11,6 +11,17 @@ public class Order {
     private Date dateCreate;
     private String description;
     private String salesDeptID;
+    private String oopDeptID;
+
+    public Order(List<Merchandise> merchandiseList, Date dateCreate, String description, String salesDeptID, String oopDeptID) {
+        this.id = String.valueOf(Instant.now());
+        this.merchandiseList = merchandiseList;
+        this.dateCreate = dateCreate;
+        this.description = description;
+        this.salesDeptID = salesDeptID;
+        this.oopDeptID = oopDeptID;
+    }
+
 
     public Order(String id, List<Merchandise> merchandiseList, Date dateCreate, String description) {
         this.id = id;
@@ -19,12 +30,8 @@ public class Order {
         this.description = description;
     }
 
-    public Order(List<Merchandise> merchandiseList, Date dateCreate, String description, String salesDeptID) {
-        this.id = String.valueOf(Instant.now());
-        this.merchandiseList = merchandiseList;
-        this.dateCreate = dateCreate;
-        this.description = description;
-        this.salesDeptID = salesDeptID;
+    public String getOopDeptID() {
+        return oopDeptID;
     }
 
     public String getDescription() {

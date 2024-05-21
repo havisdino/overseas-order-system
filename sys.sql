@@ -170,7 +170,7 @@ create table tempcancelledorder (
 );
 
 create table cancelledorder (
-    orderid varchar(50) primary,
+    orderid varchar(50) primary key,
     foreign key (orderid) references order_(id)
 );
 -- **************************************************************

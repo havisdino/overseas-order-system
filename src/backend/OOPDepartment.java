@@ -25,13 +25,12 @@ public class OOPDepartment {
         }
     }
 
-    public List<Site> getSites() {
-//        try {
-//            return siteDatabase.getSiteList();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-        return null;
+    public List<SiteInfo> getSiteInfo(String mercode) {
+        try {
+            return oopDepartmentDatabase.getSiteInfo(mercode);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

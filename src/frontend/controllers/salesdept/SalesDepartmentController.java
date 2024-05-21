@@ -4,8 +4,6 @@ import backend.Config;
 import backend.Order;
 import backend.SalesDepartment;
 import frontend.controllers.Switchable;
-import frontend.controllers.UniversalController;
-import frontend.controllers.site.MerListTagController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,7 +51,7 @@ public class SalesDepartmentController extends Switchable implements Initializab
     }
 
     @FXML
-    void newOrderButtonClicked(ActionEvent event) {
-
+    void newOrderButtonClicked(ActionEvent event) throws Exception {
+        jump("/frontend/fxml/salesdept/NewOrderScreen.fxml");
     }
 }

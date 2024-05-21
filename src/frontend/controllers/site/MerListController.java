@@ -53,20 +53,12 @@ public class MerListController extends Switchable implements Initializable {
 
     @FXML
     void addMerButtonClicked(ActionEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/frontend/fxml/site/AddMerScreen.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Add merchandises");
-        stage.setScene(new Scene(root));
-        stage.show();
+        jump("/frontend/fxml/site/AddMerScreen.fxml");
     }
 
     @FXML
     void logoutButtonClicked(ActionEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/frontend/fxml/login/LogInScreen.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("EasyOrder");
-        stage.setScene(new Scene(root));
-        stage.show();
+        jump("/frontend/fxml/login/LogInScreen.fxml");
         close(event);
     }
 

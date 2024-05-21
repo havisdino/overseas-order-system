@@ -112,4 +112,21 @@ public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {
         close();
         return orderList;
     }
+
+    @Override
+    public List<String> getOOPDeptID() throws SQLException{
+        connect();
+        Statement stmt = connection.createStatement();
+        String query = "select id from oopdept";
+        ResultSet results = stmt.executeQuery(query);
+        List<String> oopDeptIDList = new ArrayList<>();
+
+        while(results.next()) {
+            String oopDeptID = results.getString("id");
+            oopDeptIDList.add(oopDeptID);
+        }
+        stmt.close();
+        close();
+        return oopDeptIDList;
+    }
 }

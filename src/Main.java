@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/frontend/fxml/login/LogInScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/fxml/login/LogInScreen.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("EasyOrder");
         stage.setScene(scene);

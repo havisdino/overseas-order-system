@@ -64,18 +64,6 @@ insert into rawmerchandise (code, name, unit) values ('MIBOTAIWAN', 'Taiwanese b
 
 
 -- **************************************************************
-create table merchandise (
-    code varchar(50),
-    name text,
-    unit text,
-    quantity int,
-    deliverydate varchar(50),
-    foreign key (code) references rawmerchandise(code)
-);
--- **************************************************************
-
-
--- **************************************************************
 create table site (
     code varchar(50) primary key,
     name varchar(50),

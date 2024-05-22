@@ -1,8 +1,8 @@
 package backend;
+
 import backend.database.SQLiteSalesDeptDatabase;
 import backend.database.SalesDepartmentDatabase;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class SalesDepartment {

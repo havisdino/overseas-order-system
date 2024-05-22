@@ -56,7 +56,7 @@ public class OrderHandlingController extends Switchable implements Initializable
     }
 
     @FXML
-    void cancelButtonClicked(ActionEvent event) throws Exception {
+    void stashButtonClicked(ActionEvent event) throws Exception {
         CancellationHandler cancellationHandler = new CancellationHandler(Config.getInstance().getUsername());
         cancellationHandler.stashOrder(order.getId());
         close(event);
@@ -64,7 +64,7 @@ public class OrderHandlingController extends Switchable implements Initializable
 
     @FXML
     void placeButtonClicked(ActionEvent event) {
-
+        // place order here
         close(event);
     }
 

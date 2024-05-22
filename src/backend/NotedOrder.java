@@ -18,8 +18,8 @@ public class NotedOrder extends Order {
         super(id, merchandiseList, dateCreate, description, salesDeptID);
     }
 
-    public NotedOrder(String id, String oopDeptID, String note) {
-        super(id, oopDeptID);
+    public NotedOrder(String id, String oopDeptID, String note, Date dateCreated) {
+        super(id, oopDeptID, dateCreated);
         this.note = note;
     }
 }

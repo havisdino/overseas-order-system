@@ -67,7 +67,7 @@ public class OOPDeptController extends Switchable implements Initializable {
 
 
     @FXML
-    void cancelledButtonClicked(ActionEvent event) {
+    void stashedButtonClicked(ActionEvent event) {
         goToCancellationPage();
     }
 

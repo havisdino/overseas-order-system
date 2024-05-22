@@ -42,6 +42,9 @@ public class Order {
         this.oopDeptID = oopDeptID;
     }
 
+    public Order() {
+    }
+
     public String getOopDeptID() {
         return oopDeptID;
     }
@@ -72,5 +75,9 @@ public class Order {
 
     public String getSalesDeptID() {
         return salesDeptID;
+    }
+
+    public void setMerchandiseList(List<Merchandise> merchandiseList) {
+        this.merchandiseList = merchandiseList;
     }
 }

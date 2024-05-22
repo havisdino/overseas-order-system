@@ -12,11 +12,13 @@ public class Switchable {
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
-    public void jump(String fxmlUrl) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource(fxmlUrl));
+    public Object jump(String fxmlUrl) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlUrl));
+        Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("EasyOrder");
         stage.setScene(new Scene(root));
         stage.show();
+        return loader.getController();
     }
 }

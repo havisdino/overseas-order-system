@@ -30,7 +30,7 @@ public class OrderTagController {
     public void setData(Order order) {
         descriptionLabel.setText(order.getDescription());
         orderIDLabel.setText(order.getId());
-        desiredDateLabel.setText(order.getDateCreate().toString());
+        desiredDateLabel.setText(order.getDateCreatedInString());
     }
 
 }

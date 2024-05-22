@@ -1,4 +1,4 @@
-package frontend.controllers.oopdept;
+package frontend.controllers.oopdept.orderhandling;
 
 import backend.Config;
 import backend.OOPDepartment;
@@ -33,7 +33,7 @@ public class HomePageController extends Switchable implements Initializable {
     void addOrderTag(List<Order> orders) throws Exception {
         for (Order order : orders) {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/frontend/fxml/oopdept/OrderTag.fxml"));
+            loader.setLocation(getClass().getResource("/frontend/fxml/oopdept/orderhandling/OrderTag.fxml"));
             HBox orderTag = loader.load();
             OrderTagController orderTagController = loader.getController();
 

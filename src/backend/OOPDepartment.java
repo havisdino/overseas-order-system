@@ -33,4 +33,13 @@ public class OOPDepartment {
             return null;
         }
     }
+
+    public List<SiteInfo> filterSiteInfo(String deliveryDate, List<SiteInfo> siteInfoList) {
+        try {
+            return oopDepartmentDatabase.filterSiteInfo(deliveryDate, siteInfoList);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

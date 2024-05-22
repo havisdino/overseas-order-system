@@ -18,6 +18,12 @@ public class Merchandise extends RawMerchandise {
         this.quantity = quantity;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        Merchandise mer = (Merchandise) obj;
+        return getCode().equals(mer.getCode()) && getQuantity() == mer.getQuantity();
+    }
+
     public int getQuantity() {
         return quantity;
     }

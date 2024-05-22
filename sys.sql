@@ -110,8 +110,14 @@ create table order_merchandise (
 create table warehouse (
     id varchar(50) primary key,
     salesdeptid varchar(50),
-    foreign key (salesdeptid) references salesdept(id)
+    foreign key (salesdeptid) references salesdept(id),
+    foreign key (id) references account(username)
 );
+
+insert into warehouse (id, salesdeptid) values ('warehouse1', 'sales');
+insert into warehouse (id, salesdeptid) values ('warehouse2', 'sales');
+insert into warehouse (id, salesdeptid) values ('warehouse3', 'sales');
+insert into warehouse (id, salesdeptid) values ('warehouse4', 'sales');
 -- **************************************************************
 
 

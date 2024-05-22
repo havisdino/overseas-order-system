@@ -1,28 +1,60 @@
 package backend.database;
 
+import backend.Config;
+import backend.Merchandise;
 import backend.Order;
+import backend.OrderCheck;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SQLiteWarehouseDatabase implements WarehouseDatabase {
     private Connection connection;
+    private String url;
 
-    public SQLiteWarehouseDatabase(String dbPath) throws Exception {
-        String url = "jdbc:sqlite:" + dbPath;
-        this.connection = DriverManager.getConnection(url);
+    public SQLiteWarehouseDatabase() throws Exception {
+        String dbPath = Config.getInstance().getDbPath();
+        url = "jdbc:sqlite:" + dbPath;
     }
 
     @Override
-    public void createOrderCheck(Order order, String wareHouseID) throws SQLException {
+    public void createOrderCheck(OrderCheck orderCheck) throws SQLException {
+        connect();
         Statement stmt = connection.createStatement();
-        String id = String.valueOf(Instant.now().getEpochSecond());
-        String query = "insert into order (id, warehouseid) values (" +
-                id + "," + wareHouseID + ")";
+        String query = String.format(
+                "insert into ordercheck (id, result, datecreated) values ('%s', '%s', '%s')",
+                orderCheck.getId(),
+                orderCheck.getStatus(),
+                orderCheck.getDateCreatedInString()
+        );
         stmt.executeUpdate(query);
         stmt.close();
+        close();
+    }
+
+    @Override
+    public Order getOrder(String orderID) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List<OrderCheck> getOrderChecks(String warehouseID) throws SQLException {
+        connect();
+        Statement stmt = connection.createStatement();
+        String query = ""
+        stmt.close();
+        close();
+    }
+
+    @Override
+    public void connect() throws SQLException {
+        connection = DriverManager.getConnection(url);
+    }
+
+    @Override
+    public void close() throws SQLException {
+        connection.close();
     }
 }

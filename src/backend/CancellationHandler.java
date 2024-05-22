@@ -26,8 +26,7 @@ public class CancellationHandler {
         db.removeStashedOrder(orderID);
     }
 
-    public void addCancelledOrder(String orderID) {
-        // ************
-        //
+    public void addCancelledOrder(String orderID, String note) throws Exception {
+        db.addCancelledOrder(orderID, note);
     }
 }

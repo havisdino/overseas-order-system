@@ -1,6 +1,7 @@
 package backend.database;
 
 import backend.Config;
+
 import java.sql.*;
 
 public class SQLiteAccountDatabase implements AccountDatabase {

@@ -1,6 +1,7 @@
 package frontend.controllers.oopdept.orderhandling;
 
-import backend.*;
+import backend.Merchandise;
+import backend.Order;
 import frontend.controllers.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

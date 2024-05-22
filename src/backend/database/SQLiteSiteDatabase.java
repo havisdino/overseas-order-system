@@ -4,7 +4,6 @@ import backend.Config;
 import backend.DeliveryInfo;
 import backend.Merchandise;
 
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

@@ -26,8 +26,13 @@ public class CancelledOrderTagController extends Switchable {
 
     @FXML
     void cancelButtonClicked(ActionEvent event) throws Exception {
+        ConfirmScreenController c = (ConfirmScreenController) jump("/frontend/fxml/oopdept/cancellation/ConfirmScreen.fxml");
+        c.setParentController(this);
+    }
+
+    public void confirmCancel(String note) throws Exception {
         CancellationHandler ch = new CancellationHandler(Config.getInstance().getUsername());
-        ch.addCancelledOrder(order.getId());
+        ch.addCancelledOrder(order.getId(), note);
         ch.removeStashedOrder(order.getId());
         buttonContainer.getChildren().clear();
         Label cancelledLabel = new Label();

@@ -3,12 +3,12 @@ package backend.database;
 import backend.Config;
 import backend.Merchandise;
 import backend.Order;
-import java.text.DateFormat;
+
+import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class SQLiteSalesDeptDatabase implements SalesDepartmentDatabase {

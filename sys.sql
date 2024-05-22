@@ -149,6 +149,8 @@ create table oopdept (
     id varchar(50) primary key,
     foreign key (id) references account(username)
 );
+
+insert into oopdept (id) values ('oop');
 -- **************************************************************
 
 
@@ -164,7 +166,7 @@ create table oopdept_order (
 
 
 -- **************************************************************
-create table tempcancelledorder (
+create table stashedorder (
     orderid varchar(50) primary key,
     foreign key (orderid) references order_(id)
 );

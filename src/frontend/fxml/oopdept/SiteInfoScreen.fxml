@@ -92,7 +92,7 @@
       <HBox spacing="20.0">
          <children>
             <Label styleClass="normal-text" text="Selected:" />
-            <Label styleClass="normal-text" text="0/10" />
+            <Label fx:id="selectedLabel" styleClass="normal-text" text="0/10" />
          </children>
          <VBox.margin>
             <Insets />

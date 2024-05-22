@@ -15,8 +15,6 @@ public class Switchable {
     public Object jump(String fxmlUrl) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlUrl));
         Parent root = loader.load();
-
-//        Parent root = FXMLLoader.load(getClass().getResource(fxmlUrl));
         Stage stage = new Stage();
         stage.setTitle("EasyOrder");
         stage.setScene(new Scene(root));

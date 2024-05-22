@@ -1,5 +1,6 @@
 package frontend.controllers.warehouse;
 
+import backend.OrderCheck;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -21,6 +22,19 @@ public class OrderTagController {
     @FXML
     void detailButtonClicked(ActionEvent event) {
 
+    }
+
+    public void setData(OrderCheck orderCheck) {
+        orderIDLabel.setText(orderCheck.getId());
+        desiredDateLabel.setText(orderCheck.getDateCreatedInString());
+
+        String checkResult = orderCheck.getStatus();
+        checkResultLabel.setText(checkResult);
+        if (checkResult == "Distinct") {
+            checkResultLabel.getStyleClass().add("failed-text");
+        } else if (checkResult == "Identical") {
+            checkResultLabel.getStyleClass().add("success-text");
+        }
     }
 
 }

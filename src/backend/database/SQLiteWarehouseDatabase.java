@@ -41,11 +41,7 @@ public class SQLiteWarehouseDatabase implements WarehouseDatabase {
 
     @Override
     public List<OrderCheck> getOrderChecks(String warehouseID) throws SQLException {
-        connect();
-        Statement stmt = connection.createStatement();
-        String query = ""
-        stmt.close();
-        close();
+        return null;
     }
 
     @Override

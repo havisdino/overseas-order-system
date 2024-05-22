@@ -8,11 +8,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class MerTagController {
-    List<Merchandise> cart;
+    private List<Merchandise> cart;
 
     @FXML
     private Button addButton;
@@ -35,17 +36,22 @@ public class MerTagController {
     @FXML
     void addButtonClicked(ActionEvent event) {
         int quantity = Integer.parseInt(quantityField.getText());
-        Merchandise merchandise = new Merchandise(
-                mercodeLabel.getText(),
-                nameLabel.getText(),
-                unitLabel.getText(),
-                quantity,
-//                dateField.getText()
-                new Date()
-        );
-        cart.add(merchandise);
-        disableButton(addButton);
-        System.out.println(cart);
+        String dateString = dateField.getText();
+        try {
+            Date date = (new SimpleDateFormat("yyyy-MM-dd")).parse(dateString);
+            Merchandise merchandise = new Merchandise(
+                    mercodeLabel.getText(),
+                    nameLabel.getText(),
+                    unitLabel.getText(),
+                    quantity,
+                    date
+            );
+            cart.add(merchandise);
+            disableButton(addButton);
+            System.out.println(cart);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void disableButton(Button button) {

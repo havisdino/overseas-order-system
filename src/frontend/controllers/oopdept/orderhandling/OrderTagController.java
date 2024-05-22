@@ -1,4 +1,4 @@
-package frontend.controllers.oopdept;
+package frontend.controllers.oopdept.orderhandling;
 
 import backend.Order;
 import frontend.controllers.Switchable;
@@ -20,7 +20,7 @@ public class OrderTagController extends Switchable {
 
     @FXML
     void handleButtonClicked(ActionEvent event) throws Exception {
-        OrderHandlingController ohController = (OrderHandlingController) jump("/frontend/fxml/oopdept/OrderHandlingScreen.fxml");
+        OrderHandlingController ohController = (OrderHandlingController) jump("/frontend/fxml/oopdept/orderhandling/OrderHandlingScreen.fxml");
         ohController.setData(order);
     }
 

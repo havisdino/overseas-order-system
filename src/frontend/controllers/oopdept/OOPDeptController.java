@@ -48,13 +48,13 @@ public class OOPDeptController extends Switchable implements Initializable {
     }
 
     private void getHome() {
-        alterPage("/frontend/fxml/oopdept/HomePage.fxml");
+        alterPage("/frontend/fxml/oopdept/orderhandling/HomePage.fxml");
         disableButton(homeButton);
         enableButton(cancellationButton);
     }
 
     private void goToCancellationPage() {
-        alterPage("/frontend/fxml/oopdept/CancellationPage.fxml");
+        alterPage("/frontend/fxml/oopdept/cancellation/CancellationPage.fxml");
         disableButton(cancellationButton);
         enableButton(homeButton);
     }

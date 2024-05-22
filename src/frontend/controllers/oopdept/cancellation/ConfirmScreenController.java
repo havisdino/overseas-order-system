@@ -1,5 +1,7 @@
-package frontend.controllers.oopdept;
+package frontend.controllers.oopdept.cancellation;
 
+import backend.CancellationHandler;
+import backend.Config;
 import frontend.controllers.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,8 +18,10 @@ public class ConfirmScreenController extends Switchable {
     }
 
     @FXML
-    void confirmButtonClicked(ActionEvent event) {
+    void confirmButtonClicked(ActionEvent event) throws Exception {
+        CancellationHandler cancellationHandler = new CancellationHandler(Config.getInstance().getUsername());
         String note = noteField.getText();
+        // Confirm deletion
 
     }
 

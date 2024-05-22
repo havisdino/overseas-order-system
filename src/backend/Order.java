@@ -37,6 +37,11 @@ public class Order {
         this.salesDeptID = salesDeptID;
     }
 
+    public Order(String id, String oopDeptID) {
+        this.id = id;
+        this.oopDeptID = oopDeptID;
+    }
+
     public String getOopDeptID() {
         return oopDeptID;
     }

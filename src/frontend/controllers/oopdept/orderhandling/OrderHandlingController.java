@@ -1,9 +1,6 @@
-package frontend.controllers.oopdept;
+package frontend.controllers.oopdept.orderhandling;
 
-import backend.Config;
-import backend.Merchandise;
-import backend.OOPDepartment;
-import backend.Order;
+import backend.*;
 import frontend.controllers.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,10 +30,14 @@ public class OrderHandlingController extends Switchable implements Initializable
     @FXML
     private Label salesDepartmentIDLabel;
 
+    @FXML
+    private Label descLabel;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            OOPDepartment oopDept = new OOPDepartment(Config.getInstance().getUsername());
+            String id = Config.getInstance().getUsername();
+            OOPDepartment oopDept = new OOPDepartment(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,18 +46,19 @@ public class OrderHandlingController extends Switchable implements Initializable
     private void addMerTags(List<Merchandise> mers) throws Exception {
         for (Merchandise m : mers) {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/frontend/fxml/oopdept/MerchandiseTag.fxml"));
+            loader.setLocation(getClass().getResource("/frontend/fxml/oopdept/orderhandling/MerchandiseTag.fxml"));
             HBox merTag = loader.load();
             MerchandiseTagController merTagController = loader.getController();
 
-            merTagController.setData(m);
+            merTagController.setData(m, order);
             mainVBox.getChildren().add(merTag);
         }
     }
 
     @FXML
-    void cancelButtonClicked(ActionEvent event) {
-        // stash order
+    void cancelButtonClicked(ActionEvent event) throws Exception {
+        CancellationHandler cancellationHandler = new CancellationHandler(Config.getInstance().getUsername());
+        cancellationHandler.stashOrder(order.getId());
         close(event);
     }
 
@@ -71,6 +73,7 @@ public class OrderHandlingController extends Switchable implements Initializable
         orderIDLabel.setText(order.getId());
         salesDepartmentIDLabel.setText(order.getSalesDeptID());
         dateLabel.setText(order.getDateCreatedInString());
+        descLabel.setText(order.getDescription());
         List<Merchandise> mers = order.getMerchandiseList();
         addMerTags(mers);
     }

@@ -177,6 +177,7 @@ create table stashedorder (
 
 create table cancelledorder (
     orderid varchar(50) primary key,
+    note text,
     foreign key (orderid) references order_(id)
 );
 -- **************************************************************

@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.oopdept.CancellationController">
+<VBox spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.oopdept.orderhandling.HomePageController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
    </padding>
    <children>
-      <Label styleClass="heading" text="Cancelled orders" />
+      <Label styleClass="heading" text="Overseas Order Placement Department Administration" />
       <Label styleClass="title" text="Orders from sales departments" />
       <VBox VBox.vgrow="ALWAYS">
          <children>

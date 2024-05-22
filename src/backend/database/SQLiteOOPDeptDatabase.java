@@ -177,10 +177,11 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
     }
 
     @Override
-    public void stashOrder(String orderID) throws SQLException {
+    public void addStashedOrder(String orderID) throws SQLException {
         connect();
         Statement stmt = connection.createStatement();
         String query = "insert into stashedorder (orderid) values ('" + orderID + "')";
+        System.out.println("Order " + orderID + " stashed");
         stmt.executeUpdate(query);
         stmt.close();
         close();
@@ -199,5 +200,24 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
     @Override
     public void addCancelledOrder(String orderID) {
 
+    }
+
+    @Override
+    public List<Order> getStashedOrders(String oopdDeptID) throws SQLException {
+        connect();
+        Statement stmt = connection.createStatement();
+        String query = "select orderid, salesdeptid, oopdeptid from stashedorder as so join order_ as o on so.orderid = o.id where oopdeptid = '" + oopdDeptID + "'";
+        ResultSet res = stmt.executeQuery(query);
+
+        List<Order> orders = new ArrayList<>();
+        while (res.next()) {
+            String orderID = res.getString("orderid");
+            String salesDeptId  = res.getString("salesdeptid");
+            orders.add(new Order(orderID, salesDeptId));
+        }
+
+        stmt.close();
+        close();
+        return orders;
     }
 }

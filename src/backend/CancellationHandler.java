@@ -3,6 +3,8 @@ package backend;
 import backend.database.OOPDepartmentDatabase;
 import backend.database.SQLiteOOPDeptDatabase;
 
+import java.util.List;
+
 public class CancellationHandler {
     String oopdDeptID;
     OOPDepartmentDatabase db;
@@ -12,8 +14,12 @@ public class CancellationHandler {
          db = new SQLiteOOPDeptDatabase();
     }
 
+    public List<Order> getStashedOrders() throws Exception {
+        return db.getStashedOrders(oopdDeptID);
+    }
+
     public void stashOrder(String orderID) throws Exception {
-        db.stashOrder(orderID);
+        db.addStashedOrder(orderID);
     }
 
     public void removeStashedOrder(String orderID) throws Exception {

@@ -1,9 +1,10 @@
-package frontend.controllers.oopdept;
+package frontend.controllers.oopdept.cancellation;
 
 import backend.CancellationHandler;
 import backend.Config;
 import backend.Order;
 import frontend.controllers.Switchable;
+import frontend.controllers.oopdept.orderhandling.OrderHandlingController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -30,7 +31,7 @@ public class CancelledOrderTagController extends Switchable {
 
     @FXML
     void reviewButtonClicked(ActionEvent event) throws Exception {
-        OrderHandlingController ohc = (OrderHandlingController) jump("/frontend/fxml/oopdept/OrderHandlingScreen.fxml");
+        OrderHandlingController ohc = (OrderHandlingController) jump("/frontend/fxml/oopdept/orderhandling/OrderHandlingScreen.fxml");
         ohc.setData(order);
     }
 

@@ -1,5 +1,6 @@
 package backend;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Merchandise extends RawMerchandise {
@@ -27,5 +28,12 @@ public class Merchandise extends RawMerchandise {
 
     public Date getDeliveryDate() {
         return deliveryDate;
+    }
+
+    public String getDeliveryDateInString() {
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+        String datecreate = dateFormat.format(deliveryDate);
+        return datecreate;
     }
 }

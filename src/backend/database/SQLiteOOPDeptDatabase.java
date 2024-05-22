@@ -154,7 +154,7 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
     public List<SiteInfo> getSiteInfo(String merchandiseCode) throws SQLException {
         connect();
         Statement stmt = connection.createStatement();
-        String query = "select site.code, site.name, site_merchandise.quantity from site join site_merchandise on site.code = site_merchandise.sitecode where site_merchandise.mercode ='" + merchandiseCode + "'";
+        String query = "select site.code, site.name, site.daysByShip, site.daysByAir, site_merchandise.quantity from site join site_merchandise on site.code = site_merchandise.sitecode where site_merchandise.mercode ='" + merchandiseCode + "'";
         ResultSet results = stmt.executeQuery(query);
 
         List<SiteInfo> siteInfoList = new ArrayList<>();
@@ -163,12 +163,53 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
             String siteCode = results.getString("code");
             String name = results.getString("name");
             int quantity = results.getInt("quantity");
-            siteInfoList.add(new SiteInfo(siteCode, name, quantity));
+            int daysByShip = results.getInt("daysByShip");
+            int daysByAir = results.getInt("daysByAir");
+            siteInfoList.add(new SiteInfo(siteCode, name, quantity, daysByShip, daysByAir));
         }
 
         stmt.close();
         close();
         return siteInfoList;
+    }
+
+    @Override
+    public List<SiteInfo> filterSiteInfo(String deliveryDate, List<SiteInfo> siteInfoList) throws SQLException {
+        connect();
+        Statement stmt = connection.createStatement();
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+        long result;
+        try {
+            Date deliveryDateStringToDate = dateFormat.parse(deliveryDate);
+            Date currentDate = new Date();
+
+            long startValue = deliveryDateStringToDate.getTime();
+            long endValue = currentDate.getTime();
+            long tmp = Math.abs(startValue - endValue);
+
+            result = tmp/(24*60*60*1000);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        List<SiteInfo> siteInfoFilterList = new ArrayList<>();
+
+        for(SiteInfo site: siteInfoList) {
+            String siteCode = site.getCode();
+            String name = site.getName();
+            int quantity = site.getQuantity();
+            int daysByShip = site.getDaysByShip();
+            int daysByAir = site.getDaysByAir();
+
+            if(result < daysByShip || result < daysByAir) {
+                siteInfoFilterList.add(new SiteInfo(siteCode, name, quantity, daysByShip, daysByAir));
+            }
+        }
+
+        stmt.close();
+        close();
+        return siteInfoFilterList;
     }
 
 

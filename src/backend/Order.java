@@ -21,6 +21,12 @@ public class Order {
         this.oopDeptID = oopDeptID;
     }
 
+    public Order(String id, List<Merchandise> merchandiseList, Date dateCreated) {
+        this.id = id;
+        this.merchandiseList = merchandiseList;
+        this.dateCreated = dateCreated;
+    }
+
     public Order(String id, List<Merchandise> merchandiseList, Date dateCreated, String description) {
         this.id = id;
         this.merchandiseList = merchandiseList;

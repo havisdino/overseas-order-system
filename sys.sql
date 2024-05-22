@@ -126,6 +126,7 @@ create table ordercheck (
     id varchar(50) primary key,
     result varchar(20),
     datecreated varchar(20),
+    warehouseid varchar(50),
     foreign key (id) references order_(id)
 );
 -- **************************************************************

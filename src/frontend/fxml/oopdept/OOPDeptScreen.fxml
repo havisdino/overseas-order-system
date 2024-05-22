@@ -37,7 +37,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="cancellationButton" mnemonicParsing="false" onAction="#cancelledButtonClicked" style="-fx-background-color: 0;" text="Cancellations" wrapText="true">
+                        <Button fx:id="cancellationButton" mnemonicParsing="false" onAction="#stashedButtonClicked" style="-fx-background-color: 0;" text="Stashed" wrapText="true">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="24.0">
                                  <image>

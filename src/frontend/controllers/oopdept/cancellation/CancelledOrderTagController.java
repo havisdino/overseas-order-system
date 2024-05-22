@@ -4,13 +4,16 @@ import backend.CancellationHandler;
 import backend.Config;
 import backend.Order;
 import frontend.controllers.Switchable;
-import frontend.controllers.oopdept.orderhandling.OrderHandlingController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 
 public class CancelledOrderTagController extends Switchable {
     private Order order;
+
+    @FXML
+    private HBox buttonContainer;
 
     @FXML
     private Label dateLabel;
@@ -26,12 +29,17 @@ public class CancelledOrderTagController extends Switchable {
         CancellationHandler ch = new CancellationHandler(Config.getInstance().getUsername());
         ch.addCancelledOrder(order.getId());
         ch.removeStashedOrder(order.getId());
-        close(event);
+        buttonContainer.getChildren().clear();
+        Label cancelledLabel = new Label();
+        cancelledLabel.setText("Cancelled");
+        cancelledLabel.getStyleClass().add("normal-text");
+        cancelledLabel.setStyle("-fx-text-fill: -color-base-4");
+        buttonContainer.getChildren().add(cancelledLabel);
     }
 
     @FXML
     void reviewButtonClicked(ActionEvent event) throws Exception {
-        OrderHandlingController ohc = (OrderHandlingController) jump("/frontend/fxml/oopdept/orderhandling/OrderHandlingScreen.fxml");
+        OrderReviewController ohc = (OrderReviewController) jump("/frontend/fxml/oopdept/cancellation/OrderReviewScreen.fxml");
         ohc.setData(order);
     }
 
@@ -39,6 +47,6 @@ public class CancelledOrderTagController extends Switchable {
         this.order = order;
         orderIDLabel.setText(order.getId());
         salesDeptIDLabel.setText(order.getSalesDeptID());
-        dateLabel.setText(order.getDateCreate().toString());
+        dateLabel.setText(order.getDateCreatedInString());
     }
 }

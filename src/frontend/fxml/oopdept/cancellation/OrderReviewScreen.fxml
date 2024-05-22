@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="700.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.oopdept.orderhandling.OrderHandlingController">
+<VBox prefHeight="700.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner" stylesheets="@../../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.oopdept.cancellation.OrderReviewController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
    </padding>
    <children>
       <HBox alignment="CENTER_LEFT" spacing="10.0">
          <children>
-            <Label styleClass="heading" text="Order handling" />
+            <Label styleClass="heading" text="Order review" />
          </children>
       </HBox>
       <Label styleClass="title" text="General information" />
@@ -32,7 +32,7 @@
                <children>
                   <Label fx:id="orderIDLabel" styleClass="normal-text" text="HIEWBT" wrapText="true" />
                   <Label fx:id="salesDepartmentIDLabel" layoutX="10.0" layoutY="10.0" styleClass="normal-text" text="HIEWSATTHU" wrapText="true" />
-                  <Label fx:id="dateLabel" layoutX="10.0" layoutY="44.0" styleClass="normal-text" text="10/18/2024" wrapText="true" />
+                  <Label fx:id="dateLabel" layoutX="10.0" layoutY="44.0" styleClass="normal-text" text="2024-10-18" wrapText="true" />
                   <Label fx:id="descLabel" layoutX="10.0" layoutY="58.0" styleClass="normal-text" text="From Hiew" wrapText="true" />
                </children>
             </VBox>
@@ -66,7 +66,7 @@
       </VBox>
       <HBox alignment="CENTER_RIGHT" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#stashButtonClicked" styleClass="dangerous-button" text="Stash" />
+            <Button mnemonicParsing="false" onAction="#backButtonClicked" style="-fx-text-fill: -color-danger-7;" text="Back" />
             <Button layoutX="711.0" layoutY="10.0" mnemonicParsing="false" onAction="#placeButtonClicked" style="-fx-text-fill: -color-accent-6;" text="Place" />
          </children>
       </HBox>

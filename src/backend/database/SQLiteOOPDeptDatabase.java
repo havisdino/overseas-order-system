@@ -25,7 +25,13 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
         Statement stmt2 = connection.createStatement();
         Statement stmt3 = connection.createStatement();
 
-        String query = "select id, datecreated, description, salesdeptid from order_ where oopdeptid ='" + OOPDeptID + "'";
+        String query = "select id, datecreated, description, salesdeptid " +
+                "from order_ " +
+                "where oopdeptid = '" + OOPDeptID + "' " +
+                "and id not in ( " +
+                "select orderid as id " +
+                "from stashedorder" +
+                ");";
         ResultSet results = stmt.executeQuery(query);
 
         List<Order> orderList = new ArrayList<>();
@@ -206,18 +212,56 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
     public List<Order> getStashedOrders(String oopdDeptID) throws SQLException {
         connect();
         Statement stmt = connection.createStatement();
-        String query = "select orderid, salesdeptid, oopdeptid from stashedorder as so join order_ as o on so.orderid = o.id where oopdeptid = '" + oopdDeptID + "'";
+        String query = "select orderid, salesdeptid, oopdeptid, datecreated, description " +
+                "from stashedorder as so join order_ as o " +
+                "on so.orderid = o.id " +
+                "where oopdeptid = '" + oopdDeptID + "'";
+
         ResultSet res = stmt.executeQuery(query);
 
         List<Order> orders = new ArrayList<>();
         while (res.next()) {
             String orderID = res.getString("orderid");
             String salesDeptId  = res.getString("salesdeptid");
-            orders.add(new Order(orderID, salesDeptId));
+            String desc = res.getString("description");
+            String dateString = res.getString("datecreated");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                Date date = dateFormat.parse(dateString);
+                List<Merchandise> mers = getMerList(orderID);
+                orders.add(new Order(orderID, mers, date, desc, salesDeptId));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         stmt.close();
         close();
         return orders;
+    }
+
+    private List<Merchandise> getMerList(String orderID) throws Exception {
+        List<Merchandise> mers = new ArrayList<>();
+        Statement stmt = connection.createStatement();
+        String query = "select mercode, name, unit, quantity, deliverydate " +
+                "from order_merchandise where orderid = '" + orderID + "'";
+        ResultSet res = stmt.executeQuery(query);
+        while (res.next()) {
+            String code = res.getString("mercode");
+            String name = res.getString("name");
+            String unit = res.getString("unit");
+            int quantity = res.getInt("quantity");
+            String dateString = res.getString("deliverydate");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                Date date = dateFormat.parse(dateString);
+                mers.add(new Merchandise(code, name, unit, quantity, date));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        stmt.close();
+
+        return mers;
     }
 }

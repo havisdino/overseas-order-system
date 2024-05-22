@@ -24,7 +24,8 @@ public class CancellationController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             cancellationHandler = new CancellationHandler(Config.getInstance().getUsername());
-
+            List<Order> orders = cancellationHandler.getStashedOrders();
+            addCancelledOrderTags(orders);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -33,7 +34,7 @@ public class CancellationController implements Initializable {
     private void addCancelledOrderTags(List<Order> orders) throws Exception {
         for (Order order : orders) {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/frontend/controllers/oopdept/cancellation/CancelledOrderTagController.java"));
+            loader.setLocation(getClass().getResource("/frontend/fxml/oopdept/cancellation/CancelledOrderTag.fxml"));
             HBox cancelledOrderTag = loader.load();
             CancelledOrderTagController cancelledOrderTagController = loader.getController();
 

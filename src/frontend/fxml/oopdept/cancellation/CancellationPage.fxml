@@ -11,7 +11,7 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
    </padding>
    <children>
-      <Label styleClass="heading" text="Cancelled orders" />
+      <Label styleClass="heading" text="Stashed orders" />
       <Label styleClass="title" text="Orders from sales departments" />
       <VBox VBox.vgrow="ALWAYS">
          <children>

@@ -45,24 +45,20 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
                 e.printStackTrace();
             }
 
-            String query1 = "select mercode from order_merchandise where orderid ='" + orderID + "'";
+            String query1 = "select mercode, name, unit, quantity, deliverydate from order_merchandise where orderid ='" + orderID + "'";
             ResultSet mercodes = stmt2.executeQuery(query1);
             List<Merchandise> merchandiseList = new ArrayList<>();
 
             while (mercodes.next()) {
                 String merchandiseCode = mercodes.getString("mercode");
-                String query2 = "select name, unit, quantity, deliverydate from merchandise where code ='" + merchandiseCode + "'";
-                ResultSet merchandiseInfo = stmt3.executeQuery(query2);
-                String name = merchandiseInfo.getString("name");
-                System.out.println(name);
-                String unit = merchandiseInfo.getString("unit");
-                System.out.println(unit);
-                int quantity = merchandiseInfo.getInt("quantity");
+                String name = mercodes.getString("name");
+                String unit = mercodes.getString("unit");
+                int quantity = mercodes.getInt("quantity");
 
                 String pattern1 = "yyyy-MM-dd";
                 SimpleDateFormat dateFormat1 = new SimpleDateFormat(pattern1);
 
-                String deliverydate = merchandiseInfo.getString("deliverydate");
+                String deliverydate = mercodes.getString("deliverydate");
 
                 Date deliveryDate = null;
                 try {
@@ -77,13 +73,77 @@ public class SQLiteOOPDeptDatabase implements OOPDepartmentDatabase {
             Order orderObj = new Order(orderID, merchandiseList, dateCreate, description, salesDeptID);
             orderList.add(orderObj);
         }
-
-        stmt3.close();
         stmt2.close();
         stmt.close();
         close();
         return orderList;
     }
+
+//    public List<Order> getOrderList(String OOPDeptID) throws SQLException {
+//        connect();
+//        Statement stmt = connection.createStatement();
+//        Statement stmt2 = connection.createStatement();
+//        Statement stmt3 = connection.createStatement();
+//
+//        String query = "select id, datecreated, description, salesdeptid from order_ where oopdeptid ='" + OOPDeptID + "'";
+//        ResultSet results = stmt.executeQuery(query);
+//
+//        List<Order> orderList = new ArrayList<>();
+//        while (results.next()) {
+//            String orderID = results.getString("id");
+//            String datecreate = results.getString("datecreated");
+//            String salesDeptID = results.getString("salesdeptid");
+//            String description = results.getString("description");
+//
+//            String pattern = "yyyy-MM-dd";
+//            SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+//
+//            Date dateCreate = null;
+//            try {
+//                dateCreate = dateFormat.parse(datecreate);
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            }
+//
+//            String query1 = "select mercode from order_merchandise where orderid ='" + orderID + "'";
+//            ResultSet mercodes = stmt2.executeQuery(query1);
+//            List<Merchandise> merchandiseList = new ArrayList<>();
+//
+//            while (mercodes.next()) {
+//                String merchandiseCode = mercodes.getString("mercode");
+//                String query2 = "select name, unit, quantity, deliverydate from merchandise where code ='" + merchandiseCode + "'";
+//                ResultSet merchandiseInfo = stmt3.executeQuery(query2);
+//                String name = merchandiseInfo.getString("name");
+//                System.out.println(name);
+//                String unit = merchandiseInfo.getString("unit");
+//                System.out.println(unit);
+//                int quantity = merchandiseInfo.getInt("quantity");
+//
+//                String pattern1 = "yyyy-MM-dd";
+//                SimpleDateFormat dateFormat1 = new SimpleDateFormat(pattern1);
+//
+//                String deliverydate = merchandiseInfo.getString("deliverydate");
+//
+//                Date deliveryDate = null;
+//                try {
+//                    deliveryDate = dateFormat1.parse(deliverydate);
+//                } catch (ParseException e) {
+//                    e.printStackTrace();
+//                }
+//                Merchandise merchandiseObj = new Merchandise(merchandiseCode , name, unit, quantity, deliveryDate);
+//                merchandiseList.add(merchandiseObj);
+//            }
+//
+//            Order orderObj = new Order(orderID, merchandiseList, dateCreate, description, salesDeptID);
+//            orderList.add(orderObj);
+//        }
+//
+//        stmt3.close();
+//        stmt2.close();
+//        stmt.close();
+//        close();
+//        return orderList;
+//    }
 
     public List<SiteInfo> getSiteInfo(String merchandiseCode) throws SQLException {
         connect();

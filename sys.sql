@@ -65,7 +65,7 @@ insert into rawmerchandise (code, name, unit) values ('MIBOTAIWAN', 'Taiwanese b
 
 -- **************************************************************
 create table merchandise (
-    code varchar(50) primary key,
+    code varchar(50),
     name text,
     unit text,
     quantity int,
@@ -109,6 +109,10 @@ create table site_merchandise (
 create table order_merchandise (
     orderid varchar(50),
     mercode varchar(50),
+    name text,
+    unit text,
+    quantity int,
+    deliverydate varchar(50),
     primary key (orderid, mercode)
 );
 -- **************************************************************

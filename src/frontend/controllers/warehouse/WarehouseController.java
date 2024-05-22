@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -45,6 +46,12 @@ public class WarehouseController extends Switchable implements Initializable {
     @FXML
     void newOrderCheckButtonClicked(ActionEvent event) throws Exception {
         jump("/frontend/fxml/warehouse/NewOrderCheckScreen.fxml");
+    }
+
+    @FXML
+    void logoClicked(MouseEvent event) {
+        mainVBox.getChildren().clear();
+        initialize(null, null);
     }
 
     private void addOrderCheckTags(List<OrderCheck> orderChecks) throws Exception {

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" spacing="20.0" style="-fx-background-color: #e8e8e8;" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.warehouse.WarehouseController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #e8e8e8;" stylesheets="@../../style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controllers.warehouse.WarehouseController">
    <children>
       <VBox alignment="CENTER_LEFT" prefWidth="230.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="rounded-corner">
          <children>
@@ -17,7 +17,7 @@
                <children>
                   <HBox alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="150.0" onMouseClicked="#logoClicked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../assets/icons/logo.png" />
                            </image>

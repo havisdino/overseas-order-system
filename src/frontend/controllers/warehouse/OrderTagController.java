@@ -30,9 +30,9 @@ public class OrderTagController {
 
         String checkResult = orderCheck.getStatus();
         checkResultLabel.setText(checkResult);
-        if (checkResult == "Distinct") {
-            checkResultLabel.getStyleClass().add("failed-text");
-        } else if (checkResult == "Identical") {
+        if (checkResult.equals("Distinct")) {
+            checkResultLabel.setStyle("-fx-text-fill: -color-danger-7");
+        } else if (checkResult.equals("Identical")) {
             checkResultLabel.getStyleClass().add("success-text");
         }
     }

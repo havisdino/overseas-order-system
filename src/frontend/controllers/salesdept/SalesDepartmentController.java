@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -53,5 +54,11 @@ public class SalesDepartmentController extends Switchable implements Initializab
     @FXML
     void newOrderButtonClicked(ActionEvent event) throws Exception {
         jump("/frontend/fxml/salesdept/NewOrderScreen.fxml");
+    }
+
+    @FXML
+    void logoClicked(MouseEvent event) {
+        mainVBox.getChildren().clear();
+        initialize(null, null);
     }
 }

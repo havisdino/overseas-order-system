@@ -11,13 +11,22 @@ public class OrderCheck extends Order {
         super(merchandiseList, dateCreated, description, salesDeptID, oopDeptID);
     }
 
-    public OrderCheck(String id, List<Merchandise> merchandiseList, Date dateCreated, String description) {
-        super(id, merchandiseList, dateCreated, description);
+    public OrderCheck(List<Merchandise> merchandiseList, Date dateCreated, String description, String salesDeptID, String oopDeptID, String warehouseID) {
+        super(merchandiseList, dateCreated, description, salesDeptID, oopDeptID);
+        this.warehouseID = warehouseID;
     }
 
-    public OrderCheck(String id, List<Merchandise> merchandiseList, Date dateCreated, String description, String salesDeptID) {
-        super(id, merchandiseList, dateCreated, description, salesDeptID);
+    public OrderCheck(String id, List<Merchandise> merchandiseList, Date dateCreated, String status) {
+        super(id, merchandiseList, dateCreated);
+        this.status = status;
     }
+
+    public OrderCheck(String id, List<Merchandise> merchandiseList, Date dateCreated, String description, String salesDeptID, String warehouseID) {
+        super(id, merchandiseList, dateCreated, description, salesDeptID);
+        this.warehouseID = warehouseID;
+    }
+
+
 
     public OrderCheck(String id, String oopDeptID, Date dateCreated) {
         super(id, oopDeptID, dateCreated);
@@ -34,4 +43,9 @@ public class OrderCheck extends Order {
     public String getStatus() {
         return status;
     }
+
+    public String getWarehouseID() {
+        return warehouseID;
+    }
+
 }

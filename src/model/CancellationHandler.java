@@ -6,16 +6,16 @@ import model.database.SQLiteOOPDeptDatabase;
 import java.util.List;
 
 public class CancellationHandler {
-    String oopdDeptID;
+    String oopDeptID;
     OOPDepartmentDatabase db;
 
     public CancellationHandler(String oopDeptID) throws Exception {
-        this.oopdDeptID = oopDeptID;
+        this.oopDeptID = oopDeptID;
          db = new SQLiteOOPDeptDatabase();
     }
 
     public List<Order> getStashedOrders() throws Exception {
-        return db.getStashedOrders(oopdDeptID);
+        return db.getStashedOrders(oopDeptID);
     }
 
     public void stashOrder(String orderID) throws Exception {

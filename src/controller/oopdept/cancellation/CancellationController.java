@@ -41,5 +41,4 @@ public class CancellationController implements Initializable {
             mainVBox.getChildren().add(cancelledOrderTag);
         }
     }
-
 }

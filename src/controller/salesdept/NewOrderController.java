@@ -37,7 +37,7 @@ public class NewOrderController extends Switchable implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             RawMerchandiseDatabase db = new SQLiteRawMerchandiseDatabase();
-            List<RawMerchandise> merchandises = db.getMerchandisesExceptSite(Config.getInstance().getUsername());
+            List<RawMerchandise> merchandises = db.getMerchandises();
             addMerTags(merchandises);
 
             SalesDepartment salesDept = new SalesDepartment(Config.getInstance().getUsername());

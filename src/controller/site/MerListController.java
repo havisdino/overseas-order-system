@@ -1,8 +1,8 @@
 package controller.site;
 
 import model.Config;
-import model.Merchandise;
-import model.Site;
+import model.dataholder.Merchandise;
+import model.site.MerchandiseAdder;
 import controller.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,8 +29,8 @@ public class MerListController extends Switchable implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Config config = Config.getInstance();
         try{
-            Site site = new Site(config.getUsername());
-            List<Merchandise> merchandises = site.getMerchandise();
+            MerchandiseAdder merchandiseAdder = new MerchandiseAdder(config.getUsername());
+            List<Merchandise> merchandises = merchandiseAdder.getMerchandise();
             System.out.println(merchandises);
             addMerTags(merchandises);
         } catch (Exception e) {

@@ -1,4 +1,4 @@
-package model;
+package model.dataholder;
 
 public class DeliveryInfo {
     private int deliveryDaysByShip;

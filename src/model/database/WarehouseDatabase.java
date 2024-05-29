@@ -1,7 +1,7 @@
 package model.database;
 
-import model.Order;
-import model.OrderCheck;
+import model.dataholder.Order;
+import model.dataholder.OrderCheck;
 
 import java.sql.SQLException;
 import java.util.List;

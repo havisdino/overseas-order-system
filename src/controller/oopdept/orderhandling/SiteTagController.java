@@ -1,6 +1,6 @@
 package controller.oopdept.orderhandling;
 
-import model.SiteInfo;
+import model.dataholder.SiteInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

@@ -9,6 +9,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.dataholder.Merchandise;
+import model.dataholder.Order;
+import model.oopdept.CancellationHandler;
+import model.oopdept.OrderHandler;
 
 import java.net.URL;
 import java.util.List;
@@ -37,7 +41,7 @@ public class OrderHandlingController extends Switchable implements Initializable
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             String id = Config.getInstance().getUsername();
-            OOPDepartment oopDept = new OOPDepartment(id);
+            OrderHandler oopDept = new OrderHandler(id);
         } catch (Exception e) {
             e.printStackTrace();
         }

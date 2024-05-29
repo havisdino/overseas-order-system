@@ -1,8 +1,8 @@
 package controller.oopdept.orderhandling;
 
 import model.Config;
-import model.OOPDepartment;
-import model.Order;
+import model.oopdept.OrderHandler;
+import model.dataholder.Order;
 import controller.Switchable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +22,7 @@ public class HomePageController extends Switchable implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            OOPDepartment oopDept = new OOPDepartment(Config.getInstance().getUsername());
+            OrderHandler oopDept = new OrderHandler(Config.getInstance().getUsername());
             List<Order> orders = oopDept.getOrderList();
             addOrderTag(orders);
         } catch (Exception e) {

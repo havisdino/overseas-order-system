@@ -1,4 +1,4 @@
-package model;
+package model.dataholder;
 
 public class RawMerchandise {
     private String code;

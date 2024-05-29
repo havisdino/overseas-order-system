@@ -1,7 +1,7 @@
 package controller.oopdept.cancellation;
 
-import model.Merchandise;
-import model.Order;
+import model.dataholder.Merchandise;
+import model.dataholder.Order;
 import controller.Switchable;
 import controller.oopdept.orderhandling.MerchandiseTagController;
 import javafx.event.ActionEvent;

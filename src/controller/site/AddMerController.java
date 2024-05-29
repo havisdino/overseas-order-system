@@ -1,9 +1,9 @@
 package controller.site;
 
 import model.Config;
-import model.Merchandise;
-import model.RawMerchandise;
-import model.Site;
+import model.dataholder.Merchandise;
+import model.site.MerchandiseAdder;
+import model.dataholder.RawMerchandise;
 import model.database.RawMerchandiseDatabase;
 import model.database.SQLiteRawMerchandiseDatabase;
 import javafx.event.ActionEvent;
@@ -56,9 +56,9 @@ public class AddMerController implements Initializable {
 
     @FXML
     void doneButtonClicked(ActionEvent event) throws Exception {
-        Site site = new Site(Config.getInstance().getUsername());;
+        MerchandiseAdder merchandiseAdder = new MerchandiseAdder(Config.getInstance().getUsername());;
         for (Merchandise m : cart) {
-            site.addMerchandise(m.getQuantity(), m.getCode());
+            merchandiseAdder.addMerchandise(m.getQuantity(), m.getCode());
         }
         System.out.println("Added successfully");
         ((Node) (event.getSource())).getScene().getWindow().hide();

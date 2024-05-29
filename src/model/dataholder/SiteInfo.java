@@ -1,4 +1,4 @@
-package model;
+package model.dataholder;
 
 public class SiteInfo {
     String code;

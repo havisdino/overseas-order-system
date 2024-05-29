@@ -1,12 +1,15 @@
-package model;
+package model.site;
 
+import model.dataholder.DeliveryInfo;
+import model.dataholder.Merchandise;
+import model.dataholder.MerchandiseInfoPair;
 import model.database.SQLiteSiteDatabase;
 import model.database.SiteDatabase;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class Site {
+public class MerchandiseAdder {
     private String code;
     private DeliveryInfo deliveryInfo;
     private String name;
@@ -15,7 +18,7 @@ public class Site {
 
     private SiteDatabase db;
 
-    public Site(String code) throws Exception {
+    public MerchandiseAdder(String code) throws Exception {
         this.code = code;
 
         this.db = new SQLiteSiteDatabase();

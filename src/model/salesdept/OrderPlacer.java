@@ -1,17 +1,19 @@
-package model;
+package model.salesdept;
 
+import model.dataholder.Order;
+import model.dataholder.RawMerchandise;
 import model.database.SQLiteSalesDeptDatabase;
 import model.database.SalesDepartmentDatabase;
 
 import java.util.List;
 
-public class SalesDepartment {
+public class OrderPlacer {
 
     private String id;
     private SalesDepartmentDatabase salesDepartmentDatabase;
     private RawMerchandise rawMerchandise;
 
-    public SalesDepartment(String id) throws Exception {
+    public OrderPlacer(String id) throws Exception {
         this.id = id;
         salesDepartmentDatabase = new SQLiteSalesDeptDatabase();
     }

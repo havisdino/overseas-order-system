@@ -1,7 +1,7 @@
 package controller.oopdept.orderhandling;
 
-import model.Merchandise;
-import model.Order;
+import model.dataholder.Merchandise;
+import model.dataholder.Order;
 import controller.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

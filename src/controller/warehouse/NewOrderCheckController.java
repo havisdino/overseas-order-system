@@ -11,6 +11,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.dataholder.Merchandise;
+import model.dataholder.OrderCheck;
+import model.dataholder.RawMerchandise;
+import model.warehouse.OrderChecker;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -50,8 +54,8 @@ public class NewOrderCheckController extends Switchable implements Initializable
         OrderCheck orderCheck = new OrderCheck(orderID, cart, new Date(), null);
         orderCheck.setWarehouseID(Config.getInstance().getUsername());
 
-        Warehouse warehouse = new Warehouse(Config.getInstance().getUsername());
-        warehouse.createOrderCheck(orderCheck);
+        OrderChecker orderChecker = new OrderChecker(Config.getInstance().getUsername());
+        orderChecker.createOrderCheck(orderCheck);
         close(event);
     }
 

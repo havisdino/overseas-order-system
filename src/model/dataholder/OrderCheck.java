@@ -1,4 +1,4 @@
-package model;
+package model.dataholder;
 
 import java.util.Date;
 import java.util.List;

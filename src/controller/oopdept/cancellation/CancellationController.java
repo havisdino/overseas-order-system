@@ -1,8 +1,8 @@
 package controller.oopdept.cancellation;
 
-import model.CancellationHandler;
+import model.oopdept.CancellationHandler;
 import model.Config;
-import model.Order;
+import model.dataholder.Order;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

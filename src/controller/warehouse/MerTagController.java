@@ -1,7 +1,7 @@
 package controller.warehouse;
 
-import model.Merchandise;
-import model.RawMerchandise;
+import model.dataholder.Merchandise;
+import model.dataholder.RawMerchandise;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

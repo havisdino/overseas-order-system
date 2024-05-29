@@ -1,9 +1,9 @@
 package model.database;
 
 import model.Config;
-import model.Merchandise;
-import model.Order;
-import model.SiteInfo;
+import model.dataholder.Merchandise;
+import model.dataholder.Order;
+import model.dataholder.SiteInfo;
 
 import java.sql.*;
 import java.text.ParseException;

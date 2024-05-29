@@ -10,6 +10,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.dataholder.Merchandise;
+import model.dataholder.Order;
+import model.dataholder.SiteInfo;
+import model.oopdept.OrderHandler;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -78,7 +82,7 @@ public class SiteInfoController extends Switchable implements Initializable {
         selectedLabel.setText(selectedQuantity + "/" + totalQuantity);
 
         try {
-            OOPDepartment oopDept = new OOPDepartment(Config.getInstance().getUsername());
+            OrderHandler oopDept = new OrderHandler(Config.getInstance().getUsername());
             List<SiteInfo> siteInfoList = oopDept.getSiteInfo(merchandise.getCode());
             addSiteTags(siteInfoList);
         } catch (Exception e) {

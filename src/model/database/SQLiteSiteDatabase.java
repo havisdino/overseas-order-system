@@ -1,8 +1,8 @@
 package model.database;
 
 import model.Config;
-import model.DeliveryInfo;
-import model.Merchandise;
+import model.dataholder.DeliveryInfo;
+import model.dataholder.Merchandise;
 
 import java.sql.*;
 import java.util.ArrayList;

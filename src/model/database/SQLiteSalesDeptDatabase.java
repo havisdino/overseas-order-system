@@ -1,8 +1,8 @@
 package model.database;
 
 import model.Config;
-import model.Merchandise;
-import model.Order;
+import model.dataholder.Merchandise;
+import model.dataholder.Order;
 
 import java.sql.*;
 import java.text.ParseException;

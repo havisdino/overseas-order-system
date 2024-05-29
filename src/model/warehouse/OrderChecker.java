@@ -1,15 +1,18 @@
-package model;
+package model.warehouse;
 
+import model.dataholder.Merchandise;
+import model.dataholder.Order;
+import model.dataholder.OrderCheck;
 import model.database.SQLiteWarehouseDatabase;
 import model.database.WarehouseDatabase;
 
 import java.util.List;
 
-public class Warehouse {
+public class OrderChecker {
     private String id;
     private WarehouseDatabase db;
 
-    public Warehouse(String id) throws Exception {
+    public OrderChecker(String id) throws Exception {
         this.id = id;
         db = new SQLiteWarehouseDatabase();
     }

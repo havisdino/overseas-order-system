@@ -1,17 +1,19 @@
-package model;
+package model.oopdept;
+import model.dataholder.Order;
+import model.dataholder.SiteInfo;
 import model.database.OOPDepartmentDatabase;
 import model.database.SQLiteOOPDeptDatabase;
 import model.database.SiteDatabase;
 
 import java.util.List;
 
-public class OOPDepartment {
+public class OrderHandler {
     String id;
     private List<Order> orderList;
     private OOPDepartmentDatabase oopDepartmentDatabase;
     private SiteDatabase siteDatabase;
 
-    public OOPDepartment(String id) throws Exception {
+    public OrderHandler(String id) throws Exception {
         this.id = id;
         oopDepartmentDatabase = new SQLiteOOPDeptDatabase();
     }

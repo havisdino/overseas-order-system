@@ -14,6 +14,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.dataholder.Merchandise;
+import model.dataholder.Order;
+import model.dataholder.RawMerchandise;
+import model.salesdept.OrderPlacer;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -40,7 +44,7 @@ public class NewOrderController extends Switchable implements Initializable {
             List<RawMerchandise> merchandises = db.getMerchandises();
             addMerTags(merchandises);
 
-            SalesDepartment salesDept = new SalesDepartment(Config.getInstance().getUsername());
+            OrderPlacer salesDept = new OrderPlacer(Config.getInstance().getUsername());
             List<String> oopDeptIDs = salesDept.getOOPDeptIDs();
             ObservableList<String> items = FXCollections.observableList(oopDeptIDs);
             choiceBox.setItems(items);
@@ -59,7 +63,7 @@ public class NewOrderController extends Switchable implements Initializable {
         String desc = descField.getText();
         String oopDeptID = choiceBox.getValue();
         Order order = new Order(cart, new Date(), desc, Config.getInstance().getUsername(), oopDeptID);
-        SalesDepartment sd = new SalesDepartment(Config.getInstance().getUsername());
+        OrderPlacer sd = new OrderPlacer(Config.getInstance().getUsername());
         sd.createOrder(order);
         close(event);
     }

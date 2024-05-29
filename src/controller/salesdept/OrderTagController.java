@@ -1,6 +1,6 @@
 package controller.salesdept;
 
-import model.Order;
+import model.dataholder.Order;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

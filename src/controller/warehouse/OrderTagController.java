@@ -1,6 +1,6 @@
 package controller.warehouse;
 
-import model.OrderCheck;
+import model.dataholder.OrderCheck;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

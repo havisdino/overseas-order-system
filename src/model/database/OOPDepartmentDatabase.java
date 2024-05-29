@@ -1,7 +1,7 @@
 package model.database;
 
-import model.Order;
-import model.SiteInfo;
+import model.dataholder.Order;
+import model.dataholder.SiteInfo;
 
 import java.sql.SQLException;
 import java.util.List;

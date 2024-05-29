@@ -1,8 +1,8 @@
 package controller.oopdept.cancellation;
 
-import model.CancellationHandler;
+import model.oopdept.CancellationHandler;
 import model.Config;
-import model.Order;
+import model.dataholder.Order;
 import controller.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

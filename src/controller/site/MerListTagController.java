@@ -1,6 +1,6 @@
 package controller.site;
 
-import model.Merchandise;
+import model.dataholder.Merchandise;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

@@ -1,5 +1,6 @@
-package model;
+package model.oopdept;
 
+import model.dataholder.Order;
 import model.database.OOPDepartmentDatabase;
 import model.database.SQLiteOOPDeptDatabase;
 

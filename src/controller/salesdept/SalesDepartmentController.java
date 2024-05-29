@@ -1,8 +1,8 @@
 package controller.salesdept;
 
 import model.Config;
-import model.Order;
-import model.SalesDepartment;
+import model.dataholder.Order;
+import model.salesdept.OrderPlacer;
 import controller.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,7 +24,7 @@ public class SalesDepartmentController extends Switchable implements Initializab
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            SalesDepartment salesDept = new SalesDepartment(Config.getInstance().getUsername());
+            OrderPlacer salesDept = new OrderPlacer(Config.getInstance().getUsername());
             List<Order> orders = salesDept.getOrderList();
             addOrderTags(orders);
 

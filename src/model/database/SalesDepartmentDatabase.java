@@ -1,6 +1,6 @@
 package model.database;
 
-import model.Order;
+import model.dataholder.Order;
 
 import java.sql.SQLException;
 import java.util.List;

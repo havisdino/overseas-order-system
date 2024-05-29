@@ -1,7 +1,7 @@
 package model.database;
 
 import model.Config;
-import model.RawMerchandise;
+import model.dataholder.RawMerchandise;
 
 import java.sql.*;
 import java.util.ArrayList;

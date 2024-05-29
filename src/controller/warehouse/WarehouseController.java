@@ -1,8 +1,8 @@
 package controller.warehouse;
 
 import model.Config;
-import model.OrderCheck;
-import model.Warehouse;
+import model.dataholder.OrderCheck;
+import model.warehouse.OrderChecker;
 import controller.Switchable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,8 +24,8 @@ public class WarehouseController extends Switchable implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Warehouse warehouse = new Warehouse(Config.getInstance().getUsername());
-            List<OrderCheck> orderChecks = warehouse.getOrderCheckList();
+            OrderChecker orderChecker = new OrderChecker(Config.getInstance().getUsername());
+            List<OrderCheck> orderChecks = orderChecker.getOrderCheckList();
             addOrderCheckTags(orderChecks);
         } catch (Exception e) {
             e.printStackTrace();
